@@ -13,3 +13,41 @@ Text Domain: gaiaheritage
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
 */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-size: 11px;
+	line-height: 14px;
+}
+.box-space {
+	margin-top: 14px;
+	margin-bottom: 14px;
+}
+
+/* bootstrap navbar new styles */
+.navbar-inner {
+	border: none;
+	box-shadow: none;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+}
+
+/* header */
+#gaia h1 {
+	text-indent: -9999px;
+	background-image: url('img/gaia.gif');
+	background-repeat: no-repeat;
+	background-position: top left;
+	height: 86px;
+}
+#gaia h2 {
+	text-align: right;
+}
+#premenu a {
+	text-transform: uppercase;
+	font-weight: bold;
+}

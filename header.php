@@ -71,7 +71,7 @@ wp_head(); ?>
 <body <?php body_class(); ?>>
 
 <header>
-	<div id="pre" class="container">
+	<div id="pre" class="box-space container">
 		<div class="row">
 			<div id="gaia" class="span4">
 				<div class="row">
