@@ -157,7 +157,24 @@ function be_sample_metaboxes( $meta_boxes ) {//metaboxes common variables to all
 			),
 		);	
 	} // end while rows
-	
+		$meta_boxes[] = array(
+			'id' => 'doc',
+			'title' => 'Document',
+			'pages' => array('document'), // post type
+			'context' => 'normal',
+			'priority' => 'high',
+			'show_names' => true, // Show field names on the left
+			'fields' => array(
+				array(
+					'name' => 'Document',
+					'desc' => 'Upload a document',
+					'id' => $prefix . 'doc',
+					'type' => 'file',
+					'save_id' => true, // save ID using true
+					'allow' => array( 'url', 'attachment' ) // limit to just attachments with array( 'attachment' )
+				),
+			),
+		);
 	return $meta_boxes;
 }
 add_filter( 'cmb_meta_boxes', 'be_sample_metaboxes' );
