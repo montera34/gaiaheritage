@@ -14,9 +14,12 @@ if ( get_post_type( $post->ID ) == 'project' ) {
 	$loop = "mosac.img";
 	// filters
 	$years = get_terms( "year", $args );
+	$countries = get_terms( "country", $args );
 	$filters_out = "
 		<div class='span4'>
-			<form class='form-inline' name='selec-tax' action='" .$page_perma. "' method='get'>
+			<form class='filter-form form-inline row' name='selec-tax' action='" .$page_perma. "' method='get'>
+			<fieldset class='span1'>
+			<label class='label-first' for='year'>Year</label>
 			<select name='year'>
 				<option value='' selected>All</option>
 	";
@@ -25,7 +28,23 @@ if ( get_post_type( $post->ID ) == 'project' ) {
 	}
 	$filters_out .= "
 			</select>
-			<input type='submit' value='Filter' />
+			</fieldset>
+			<fieldset class='span1'>
+			<label for='country'>Country</label>
+			<select name='country'>
+				<option value='' selected>All</option>
+	";
+	foreach ( $countries as $term ) {
+		$filters_out .= "<option value='" .$term->slug. "'>" .$term->name. "</option>";
+	}
+	$filters_out .= "
+			</select>
+			</fieldset>
+	";
+	$filters_out .= "
+			<fieldset class='span1'>
+			<input class='form-button' type='submit' value='Filter' />
+			</fieldset>
 			</form>
 		</div>
 	";
@@ -37,7 +56,7 @@ if ( $the_query->have_posts() ) { ?>
 		<header>
 			<div class="row sec-space">
 				<div class="span4">
-					<h2 class="sec-tit"><?php echo $page_tit ?></h2>
+					<h2 class="sec-tit catcheye"><?php echo $page_tit ?></h2>
 				</div>
 			</div>
 		</header>
