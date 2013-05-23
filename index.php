@@ -20,7 +20,7 @@ if ( $the_query->have_posts() ) { ?>
 	<!-- featured projects -->
 	<section>
 		<header>
-			<div class="row">
+			<div class="row sec-space">
 				<div class="span4">
 					<h2 class="sec-tit">Featured Projects</h2>
 				</div>
@@ -28,10 +28,13 @@ if ( $the_query->have_posts() ) { ?>
 		</header>
 		<div class="row">
 			<div class="span4 box">
-				<div class="row">
+				<div class="row mosac-row">
 	<?php // The Loop
+	$count = 0;
 	while ( $the_query->have_posts() ) : $the_query->the_post();
+		$count++;
 		include "loop.mosac.img.php";
+		if ( $count == 4 ) { $count = 0; }
 	endwhile;
 	/* Restore original Post Data 
 	 * NB: Because we are using new WP_Query we aren't stomping on the 
@@ -50,7 +53,7 @@ if ( $the_query->have_posts() ) { ?>
 } // end if have post ?>
 
 
-<div class="row">
+<div class="row sec-space">
 	<!-- about -->
 	<section>
 		<div class="span3">
@@ -69,9 +72,11 @@ $args = array(
 );
 $the_query = new WP_Query( $args );
 
-if ( $the_query->have_posts() ) { ?>
-	<?php // The Loop
+if ( $the_query->have_posts() ) {
+	// The Loop
+	$count = 0;
 	while ( $the_query->have_posts() ) : $the_query->the_post();
+		$count++;
 		include "loop.mosac.text.php";
 	endwhile;
 	/* Restore original Post Data 

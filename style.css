@@ -14,6 +14,7 @@ This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
 */
 
+/* headers */
 h1,
 h2,
 h3,
@@ -27,11 +28,32 @@ h6 {
 	text-transform: uppercase;
 	background-color: white;
 	display: inline-block;
-	padding: 3px 3px 3px 10px;
+	padding: 3px 10px;
+	margin: 0;
+}
+
+/* links */
+.mosacimg-item a {
+	color: white;
+	text-decoration: none;
+}
+
+/* jokers */
+.catcheye {
+	background-color: #ff6;
+	text-transform: uppercase;
+	font-weight: bold;
+}
+.box-catcheye {
+	background-color: #ff6;
+	padding: 42px 10px 14px;
+}
+.sec-space {
+	margin-top: 56px;
 }
 .box {
 	background-color: white;
-	
+	padding: 42px 0 14px;
 }
 .box-space {
 	margin-top: 14px;
@@ -42,6 +64,9 @@ h6 {
 }
 
 /* bootstrap navbar new styles */
+.navbar {
+	margin-bottom: 0;
+}
 .navbar-inner {
 	border: none;
 	box-shadow: none;
@@ -69,7 +94,6 @@ h6 {
 .mosacimg-item {
 	position: relative;
 	height: 168px;
-	margin-top: 40px;
 	overflow: hidden;
 	text-indent: -9999px;
 }
@@ -77,6 +101,13 @@ h6 {
 	background-color: #3cf;
 	text-indent: 0;
 	color: white;
+}
+.mosacimg-item-first:hover {
+	left: 10px;
+}
+
+.mosacimg-item-last:hover {
+	right: 10px;
 }
 .mosacimg-item img {
 	position: absolute;
@@ -87,4 +118,29 @@ h6 {
 }
 .mosacimg-item-tit {
 	text-transform: uppercase;
-} 
+}
+.mosacimg-item-first .mosacimg-item-img {
+	padding-left: 10px;
+}
+.mosacimg-item-last img {
+	right: 10px;
+}
+
+/* text mosac */
+.mosactext-more {
+	margin-top: 7px;
+}
+.mosactext-more a {
+	color: white;
+	text-decoration: none;
+	background-color: #3cf;
+	padding: 3px 5px;
+}
+
+/* list */
+.list-item {
+	margin-bottom: 14px;
+}
+.list-item-tit {
+	margin: 0;
+}
