@@ -157,24 +157,42 @@ function be_sample_metaboxes( $meta_boxes ) {//metaboxes common variables to all
 			),
 		);	
 	} // end while rows
-		$meta_boxes[] = array(
-			'id' => 'doc',
-			'title' => 'Document',
-			'pages' => array('document'), // post type
-			'context' => 'normal',
-			'priority' => 'high',
-			'show_names' => true, // Show field names on the left
-			'fields' => array(
-				array(
-					'name' => 'Document',
-					'desc' => 'Upload a document',
-					'id' => $prefix . 'doc',
-					'type' => 'file',
-					'save_id' => true, // save ID using true
-					'allow' => array( 'url', 'attachment' ) // limit to just attachments with array( 'attachment' )
-				),
+	$meta_boxes[] = array(
+		'id' => 'doc',
+		'title' => 'Document',
+		'pages' => array('document'), // post type
+		'context' => 'normal',
+		'priority' => 'high',
+		'show_names' => true, // Show field names on the left
+		'fields' => array(
+			array(
+				'name' => 'Document',
+				'desc' => 'Upload a document',
+				'id' => $prefix . 'doc',
+				'type' => 'file',
+				'save_id' => true, // save ID using true
+				'allow' => array( 'url', 'attachment' ) // limit to just attachments with array( 'attachment' )
 			),
-		);
+		),
+	);
+	// sticky content in home page
+	$meta_boxes[] = array(
+		'id' => 'home-sticky',
+		'title' => 'Featured content in home page',
+		'pages' => array('project'), // post type
+		'context' => 'side',
+		'priority' => 'high',
+		'show_names' => false, // Show field names on the left
+		'fields' => array(
+			array(
+				'name' => '',
+				'desc' => 'If you check the box, this project will appear as a featured content in the home page.',
+				'id' => $prefix . 'home_sticky',
+				'type' => 'checkbox',
+			),
+		),
+	);
+
 	return $meta_boxes;
 }
 add_filter( 'cmb_meta_boxes', 'be_sample_metaboxes' );

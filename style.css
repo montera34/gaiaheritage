@@ -23,9 +23,22 @@ h6 {
 	font-size: 11px;
 	line-height: 14px;
 }
+.sec-tit {
+	text-transform: uppercase;
+	background-color: white;
+	display: inline-block;
+	padding: 3px;
+}
+.box {
+	background-color: white;
+	
+}
 .box-space {
 	margin-top: 14px;
 	margin-bottom: 14px;
+}
+.boxitem-space {
+	padding: 0 10px;
 }
 
 /* bootstrap navbar new styles */
@@ -51,3 +64,27 @@ h6 {
 	text-transform: uppercase;
 	font-weight: bold;
 }
+
+/* imgs mosac */
+.mosacimg-item {
+	position: relative;
+	height: 168px;
+	margin-top: 40px;
+	overflow: hidden;
+	text-indent: -9999px;
+}
+.mosacimg-item:hover {
+	background-color: #3cf;
+	text-indent: 0;
+	color: white;
+}
+.mosacimg-item img {
+	position: absolute;
+	top: 0px;
+}
+.mosacimg-item:hover img {
+	z-index: -1;
+}
+.mosacimg-item-tit {
+	text-transform: uppercase;
+} 

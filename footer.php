@@ -1,3 +1,6 @@
+	</div><!-- .container -->
+</section>
+
 <footer>
 	<div id="epi" class="container">
 		<div class="row">

@@ -106,3 +106,15 @@ wp_head(); ?>
 	</div><!-- .navbar #premenu -->
 	</nav>
 </header>
+
+<section>
+	<div class="container">
+		<?php if ( !is_home() ) { ?>
+		<header>
+			<div class="row">
+				<div class="span4">
+					<h1></h1>
+				</div>
+			</div>
+		<header>
+		<?php } ?>
