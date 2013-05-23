@@ -164,6 +164,18 @@ h6 {
 	margin: 0;
 }
 
+/* table */
+.table-head {
+	border-bottom: 2px solid #eee;
+}
+.table-row {
+	border-bottom: 1px solid #eee;
+}
+.table-row:hover,
+.table-row:hover a {
+	color: white;
+}
+
 /* forms */
 .filter-form {
 	margin-bottom: 42px;

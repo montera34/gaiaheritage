@@ -49,6 +49,16 @@ if ( get_post_type( $post->ID ) == 'project' ) {
 		</div>
 	";
 }
+// if project
+elseif ( get_post_type( $post->ID ) == 'document' ) {
+	$args = array(
+		'post_type' => 'document',
+		'posts_per_page' => '-1',
+	);
+	$page_tit = "Downloads";
+	$page_perma = get_permalink();
+	$loop = "table";
+}
 
 $the_query = new WP_Query( $args );
 if ( $the_query->have_posts() ) { ?>
@@ -67,6 +77,17 @@ if ( $the_query->have_posts() ) { ?>
 				<?php echo $filters_out ?>
 				</div>
 				<div class="row mosac-row">
+					<table class="table table-hover span4">
+						<thead class="table-head">
+							<tr>
+								<th>Document</th>
+								<th>Project</th>
+								<th>Date</th>
+								<th>File Type</th>
+								<th>File Size</th>
+							</tr>
+						<thead>
+						<tbody>
 	<?php // The Loop
 	$count = 0;
 	while ( $the_query->have_posts() ) : $the_query->the_post();
@@ -79,6 +100,8 @@ if ( $the_query->have_posts() ) { ?>
 	 * original $wp_query and it does not need to be reset.
 	*/
 	wp_reset_postdata(); ?>
+						</tbody>
+					</table>
 				</div><!-- .row -->
 			</div><!-- .box -->
 		</div><!-- row-->
