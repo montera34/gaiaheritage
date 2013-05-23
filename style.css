@@ -59,6 +59,10 @@ h6 {
 	margin-top: 14px;
 	margin-bottom: 14px;
 }
+.box-bordertop {
+	border-top: 1px solid;
+	padding-top: 5px;
+}
 .boxitem-space {
 	padding: 0 10px;
 }
@@ -73,6 +77,15 @@ h6 {
 	-webkit-box-shadow: none;
 	-moz-box-shadow: none;
 }
+.navbar .nav {
+	margin: 0 10px !important;
+}
+.navbar .nav>li {
+	padding: 0 15px;
+}
+.navbar .nav>li>a {
+	padding: 13px 3px 13px;
+}
 
 /* header */
 #gaia h1 {
@@ -83,6 +96,7 @@ h6 {
 	height: 86px;
 }
 #gaia h2 {
+	color: #808080;
 	text-align: right;
 }
 #premenu a {
@@ -143,4 +157,10 @@ h6 {
 }
 .list-item-tit {
 	margin: 0;
+}
+
+/* footer */
+#epi {
+	color: #808080;
+	padding: 42px 0 14px;
 }
