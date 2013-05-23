@@ -37,6 +37,10 @@ h6 {
 	color: white;
 	text-decoration: none;
 }
+#epi a {
+	color: #808080;
+	font-weight: bold;
+}
 
 /* jokers */
 .catcheye {
@@ -110,6 +114,7 @@ h6 {
 	height: 168px;
 	overflow: hidden;
 	text-indent: -9999px;
+	margin-bottom: 20px;
 }
 .mosacimg-item:hover {
 	background-color: #3cf;

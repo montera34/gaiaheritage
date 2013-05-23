@@ -15,8 +15,12 @@ $genvars = array(
 	<div id="epi" class="container">
 		<div class="row">
 			<div class="span4 box-bordertop">
-				<?php echo $genvars['blogname']; ?><br />
-				<?php echo $genvars['blogdesc']; ?><br />
+				<p><span style="text-transform: uppercase; font-weight: bold; color: #cc344f;"><?php echo $genvars['blogname']; ?></span><br />
+				<?php echo $genvars['blogdesc']; ?></p>
+				<ul class="unstyled">
+					<li><a href="">Disclaimer</a></li>
+					<li>Developed by <a href="http://montera.com">m34</a> using <a href="http://wordpress.org">WordPress</a>.</li>
+				</ul>
 			</div><!-- .box/bordertop -->
 		</div>
 	</div><!-- #pre -->

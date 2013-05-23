@@ -75,10 +75,8 @@ wp_head(); ?>
 		<div class="row">
 			<div id="gaia" class="span4">
 				<div class="row">
-					<hgroup>
 					<h1 class="span1"><?php echo "<a href='" .$genvars['blogurl']. "' title='Ir al inicio'>" .$genvars['blogname']. "</a>"; ?></h1>
-					<h2 class="span1 offset2"><?php echo $genvars['blogdesc']; ?></h2>
-					</hgroup>
+					<div class="span1 offset2"><h2 style="padding-left: 175px;"><?php echo $genvars['blogdesc']; ?></h2></div>
 				</div>
 			</div><!-- #gaia -->
 		</div>

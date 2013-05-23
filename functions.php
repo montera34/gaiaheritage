@@ -19,6 +19,7 @@ function create_post_type() {
 			'not_found_in_trash' => __( 'No projects in the trashcan' ),
 			'parent' => __( 'Parent' )
 		),
+		'has_archive' => true,
 		'public' => true,
 		'publicly_queryable' => true,
 		'exclude_from_search' => false,
