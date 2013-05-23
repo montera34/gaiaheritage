@@ -27,7 +27,7 @@ h6 {
 	text-transform: uppercase;
 	background-color: white;
 	display: inline-block;
-	padding: 3px;
+	padding: 3px 3px 3px 10px;
 }
 .box {
 	background-color: white;

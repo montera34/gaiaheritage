@@ -179,14 +179,14 @@ function be_sample_metaboxes( $meta_boxes ) {//metaboxes common variables to all
 	$meta_boxes[] = array(
 		'id' => 'home-sticky',
 		'title' => 'Featured content in home page',
-		'pages' => array('project'), // post type
+		'pages' => array('project','page'), // post type
 		'context' => 'side',
 		'priority' => 'high',
 		'show_names' => false, // Show field names on the left
 		'fields' => array(
 			array(
 				'name' => '',
-				'desc' => 'If you check the box, this project will appear as a featured content in the home page.',
+				'desc' => 'If you check the box, this content will appear as a featured content in the home page.',
 				'id' => $prefix . 'home_sticky',
 				'type' => 'checkbox',
 			),
