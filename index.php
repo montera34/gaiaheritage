@@ -62,6 +62,8 @@ if ( $the_query->have_posts() ) { ?>
 $args = array(
 	'post_type' => 'page',
 	'posts_per_page' => '3',
+	'order' => 'ASC',
+	'orderby' => 'menu_order',
 	'meta_query' => array(
 		array(
 			'key' => '_gaia_home_sticky',
@@ -105,7 +107,7 @@ if ( $the_query->have_posts() ) {
 					<div class="box">
 <?php // news
 $args = array(
-	'post_type' => 'post',
+	'post_type' => 'new',
 	'posts_per_page' => '5',
 );
 $the_query = new WP_Query( $args );
@@ -127,6 +129,7 @@ if ( $the_query->have_posts() ) { ?>
 } // end if have post ?>
 
 					</div>
+					<div class="mosactext-more"><a href="<?php echo $genvars['blogurl']; ?>/new" title="News archive">+</a></div>
 				</div>
 			</div>
 		</div>

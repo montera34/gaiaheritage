@@ -63,7 +63,36 @@ function create_post_type() {
 		'_builtin' => false,
 		'_edit_link' => 'post.php?post=%d',
 	));
-
+	// Features images in home page
+	register_post_type( 'new', array(
+		'labels' => array(
+			'name' => __( 'News' ),
+			'singular_name' => __( 'New' ),
+			'add_new_item' => __( 'Add a new' ),
+			'edit' => __( 'Edit' ),
+			'edit_item' => __( 'Edit this new' ),
+			'new_item' => __( 'New new' ),
+			'view' => __( 'View new' ),
+			'view_item' => __( 'View this new' ),
+			'search_items' => __( 'Search news' ),
+			'not_found' => __( 'No new found' ),
+			'not_found_in_trash' => __( 'No news in the trashcan' ),
+			'parent' => __( 'Parent' )
+		),
+		'has_archive' => true,
+		'public' => true,
+		'publicly_queryable' => true,
+		'exclude_from_search' => true,
+		'menu_position' => 5,
+		//'menu_icon' => get_template_directory_uri() . '/images/icon-post.type-integrantes.png',
+		'hierarchical' => false, // if true this post type will be as pages
+		'query_var' => true,
+		'supports' => array('title', 'editor','excerpt','author','trackbacks' ),
+		'rewrite' => array('slug'=>'new','with_front'=>false),
+		'can_export' => true,
+		'_builtin' => false,
+		'_edit_link' => 'post.php?post=%d',
+	));
 }
 
 // Custom Taxonomies
@@ -208,4 +237,18 @@ function be_initialize_cmb_meta_boxes() {
 // Adding featured image to the custom post types
 add_theme_support( 'post-thumbnails', array( 'project') );
 
+// excerpt support in pages
+add_post_type_support( 'page', 'excerpt' );
+
+// removing menu items from the admin panel
+function remove_menus () {
+	global $menu;
+	$restricted = array( __('Posts'));
+	end ($menu);
+	while (prev($menu)){
+		$value = explode(' ',$menu[key($menu)][0]);
+		if(in_array($value[0] != NULL?$value[0]:"" , $restricted)){unset($menu[key($menu)]);}
+	}
+}
+add_action('admin_menu', 'remove_menus');
 ?>
