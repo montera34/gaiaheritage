@@ -3,8 +3,8 @@ get_header();
 ?>
 
 <?php
-// if project
-if ( get_post_type( $post->ID ) == 'project' ) {
+// project post type archive
+
 	$args = array(
 		'post_type' => 'project',
 		'posts_per_page' => '-1',
@@ -16,6 +16,7 @@ if ( get_post_type( $post->ID ) == 'project' ) {
 	$years = get_terms( "year", $args );
 	$countries = get_terms( "country", $args );
 	$filters_out = "
+	<div class='row mosac-row'>
 		<div class='span4'>
 			<form class='filter-form form-inline row' name='selec-tax' action='" .$page_perma. "' method='get'>
 			<fieldset class='span1'>
@@ -47,18 +48,8 @@ if ( get_post_type( $post->ID ) == 'project' ) {
 			</fieldset>
 			</form>
 		</div>
+	</div>
 	";
-}
-// if project
-elseif ( get_post_type( $post->ID ) == 'document' ) {
-	$args = array(
-		'post_type' => 'document',
-		'posts_per_page' => '-1',
-	);
-	$page_tit = "Downloads";
-	$page_perma = get_permalink();
-	$loop = "table";
-}
 
 $the_query = new WP_Query( $args );
 if ( $the_query->have_posts() ) { ?>
@@ -73,21 +64,8 @@ if ( $the_query->have_posts() ) { ?>
 		<div class="row">
 			<div class="span4 box">
 
-				<div class="row mosac-row">
 				<?php echo $filters_out ?>
-				</div>
 				<div class="row mosac-row">
-					<table class="table table-hover span4">
-						<thead class="table-head">
-							<tr>
-								<th>Document</th>
-								<th>Project</th>
-								<th>Date</th>
-								<th>File Type</th>
-								<th>File Size</th>
-							</tr>
-						<thead>
-						<tbody>
 	<?php // The Loop
 	$count = 0;
 	while ( $the_query->have_posts() ) : $the_query->the_post();
@@ -100,8 +78,6 @@ if ( $the_query->have_posts() ) { ?>
 	 * original $wp_query and it does not need to be reset.
 	*/
 	wp_reset_postdata(); ?>
-						</tbody>
-					</table>
 				</div><!-- .row -->
 			</div><!-- .box -->
 		</div><!-- row-->

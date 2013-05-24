@@ -2,7 +2,7 @@
 $tit = get_the_title();
 $perma = get_permalink();
 $excerpt = get_the_excerpt();
-if ( $count == 1 ) { 
+if ( $count == 1 && is_home() ) { 
 	$header = "<h2 class='sec-tit catcheye'>" .$tit. "</h2><div class='box-catcheye catcheye'>" .$genvars['blogdesc']. "</div>";
 } else {
 	$header = "<h2 class='sec-tit'>" .$tit. "</h2>";

@@ -88,7 +88,7 @@ function create_post_type() {
 		'hierarchical' => false, // if true this post type will be as pages
 		'query_var' => true,
 		'supports' => array('title', 'editor','excerpt','author','trackbacks' ),
-		'rewrite' => array('slug'=>'new','with_front'=>false),
+		'rewrite' => array('slug'=>'news','with_front'=>false),
 		'can_export' => true,
 		'_builtin' => false,
 		'_edit_link' => 'post.php?post=%d',
