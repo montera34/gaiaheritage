@@ -107,12 +107,3 @@ wp_head(); ?>
 
 <section>
 	<div class="container">
-		<?php if ( !is_home() ) { ?>
-		<header>
-			<div class="row">
-				<div class="span4">
-					<h1></h1>
-				</div>
-			</div>
-		<header>
-		<?php } ?>

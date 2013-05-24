@@ -5,12 +5,12 @@ get_header();
 <?php
 // project post type archive
 
-	$args = array(
-		'post_type' => 'project',
-		'posts_per_page' => '-1',
-	);
+//	$args = array(
+//		'post_type' => 'project',
+//		'posts_per_page' => '-1',
+//	);
 	$page_tit = "Projects";
-	$page_perma = get_permalink();
+	$page_perma = $genvars['blogurl']. "/project";
 	$loop = "mosac.img";
 	// filters
 	$years = get_terms( "year", $args );
@@ -51,8 +51,9 @@ get_header();
 	</div>
 	";
 
-$the_query = new WP_Query( $args );
-if ( $the_query->have_posts() ) { ?>
+//$the_query = new WP_Query( $args );
+//if ( $the_query->have_posts() ) {
+if ( have_posts() ) { ?>
 	<section>
 		<header>
 			<div class="row sec-space">
@@ -68,7 +69,8 @@ if ( $the_query->have_posts() ) { ?>
 				<div class="row mosac-row">
 	<?php // The Loop
 	$count = 0;
-	while ( $the_query->have_posts() ) : $the_query->the_post();
+	//while ( $the_query->have_posts() ) : $the_query->the_post();
+	while ( have_posts() ) : the_post();
 		$count++;
 		include "loop.".$loop.".php";
 		if ( $count == 4 ) { $count = 0; }

@@ -129,7 +129,7 @@ if ( $the_query->have_posts() ) { ?>
 } // end if have post ?>
 
 					</div>
-					<div class="mosactext-more"><a href="<?php echo $genvars['blogurl']; ?>/new" title="News archive">+</a></div>
+					<div class="mosactext-more"><a href="<?php echo $genvars['blogurl']; ?>/news" title="News archive">+</a></div>
 				</div>
 			</div>
 		</div>
