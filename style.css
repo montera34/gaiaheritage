@@ -116,17 +116,24 @@ h6 {
 	text-indent: -9999px;
 	margin-bottom: 20px;
 }
+.noimg {
+	text-indent: 0;
+	background-color: #3cf;
+}
 .mosacimg-item:hover {
 	background-color: #3cf;
 	text-indent: 0;
 	color: white;
 }
-.mosacimg-item-first:hover {
-	left: 10px;
+.noimg:hover {
+	opacity: 0.8;
 }
 
-.mosacimg-item-last:hover {
-	right: 10px;
+.mosacimg-item-first {
+	margin-left: 10px;
+}
+.mosacimg-item-last {
+	margin-right: 10px;
 }
 .mosacimg-item img {
 	position: absolute;
@@ -137,12 +144,6 @@ h6 {
 }
 .mosacimg-item-tit {
 	text-transform: uppercase;
-}
-.mosacimg-item-first .mosacimg-item-img {
-	padding-left: 10px;
-}
-.mosacimg-item-last img {
-	right: 10px;
 }
 
 /* text mosac */
