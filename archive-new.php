@@ -16,7 +16,7 @@ $the_query = new WP_Query( $args );
 if ( $the_query->have_posts() ) { ?>
 	<section>
 		<header>
-			<div class="row sec-space">
+			<div class="row sec-space-separated">
 				<div class="span4">
 					<h2 class="sec-tit catcheye"><?php echo $page_tit ?></h2>
 				</div>

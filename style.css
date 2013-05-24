@@ -55,6 +55,10 @@ h6 {
 .sec-space {
 	margin-top: 56px;
 }
+.sec-space-separated {
+	margin-top: 56px;
+	margin-bottom: 28px;
+}
 .box {
 	background-color: white;
 	padding: 42px 0 14px;
