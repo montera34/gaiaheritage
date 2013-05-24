@@ -112,6 +112,10 @@ h6 {
 	font-weight: bold;
 }
 
+.current-menu-item a {
+	border-bottom: 3px solid;
+}
+
 /* imgs mosac */
 .mosacimg-item {
 	position: relative;

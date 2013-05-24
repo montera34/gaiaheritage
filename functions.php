@@ -1,4 +1,16 @@
 <?php
+// custom menus
+add_action( 'init', 'register_my_menu' );
+function register_my_menu() {
+        if ( function_exists( 'register_nav_menus' ) ) {
+                register_nav_menus(
+                array(
+                        'header-menu' => 'Header menu',
+                )
+                );
+        }
+}
+
 // Custom post types
 add_action( 'init', 'create_post_type', 0 );
 

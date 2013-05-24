@@ -86,18 +86,28 @@ wp_head(); ?>
 	<div id="premenu" class="navbar">
 		<div class="navbar-inner">
 			<div class="container">
+				<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+				</a>
+				<div class="nav-collapse">
 				<div class="row">
 					<div class="span4">
-						<ul class="nav">
-						<li><a href="">Item 1</a></li>
-						<li><a href="">Item 1</a></li>
-						<li><a href="">Item 1</a></li>
-						<li><a href="">Item 1</a></li>
-			<?php
-			// menu build
-			?>
-						</ul>
+					<?php // main navigation menu for home page
+		                        $menu_slug = "header-menu";
+		                        $args = array(
+						'theme_location' => $menu_slug,
+						'container' => 'false',
+					//	'menu_id' => 'pre-menu',
+						'menu_class' => 'nav',
+					//	'fallback_cb' => 'wp_page_menu',
+					//	'walker' => new twitter_bootstrap_nav_walker()
+		                        );
+		                        wp_nav_menu( $args );
+		                        ?>
 					</div>
+				</div>
 				</div>
 			</div><!-- .container-->
 		</div><!-- .navbar-inner -->
