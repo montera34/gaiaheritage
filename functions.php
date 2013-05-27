@@ -1,4 +1,35 @@
 <?php
+// register js scripts to avoid conflicts
+function gaia_scripts_method() {
+	wp_enqueue_script('jquery');
+	wp_enqueue_script(
+		'bootstrap.min',
+		get_template_directory_uri() . '/js/bootstrap.min.js',
+		array( 'jquery' ),
+		'2.1.2',
+		TRUE
+	);
+	if ( get_post_type() == 'new' && !is_single() ) {
+	// if is new post type, load masonry
+		wp_enqueue_script(
+			'masonry',
+			get_template_directory_uri() . '/js/jquery.masonry.min.js',
+			array( 'jquery' ),
+			'2.1.08',
+			TRUE
+		);
+		wp_enqueue_script(
+			'masonry.options',
+			get_template_directory_uri() . '/js/jquery.masonry.options.js',
+			array( 'jquery','masonry' ),
+			'1.0',
+			TRUE
+		);
+	} // end if new post type
+}
+
+add_action( 'wp_print_scripts', 'gaia_scripts_method' );
+
 // custom menus
 add_action( 'init', 'register_my_menu' );
 function register_my_menu() {
@@ -115,7 +146,7 @@ register_taxonomy( 'year', 'project', array( // year taxonomy
 	'hierarchical' => true,
 	'label' => 'Year',
 	'name' => 'Years',
-	'query_var' => true,
+	'query_var' => 'year',
 	'rewrite' => array( 'slug' => 'year', 'with_front' => false ),) );
 register_taxonomy( 'country', 'project', array( // Country taxonomy
 	'hierarchical' => true,

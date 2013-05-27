@@ -25,8 +25,6 @@ $genvars = array(
 		</div>
 	</div><!-- #pre -->
 </footer>
-<script src="http://code.jquery.com/jquery-latest.js"></script>
-<script src="<?php echo $genvars['blogtheme']; ?>/js/bootstrap.min.js"></script>
 <?php wp_footer(); ?>
 
 </body><!-- end body as main container -->

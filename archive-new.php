@@ -25,7 +25,7 @@ if ( $the_query->have_posts() ) { ?>
 		<div class="row">
 			<div class="span3">
 				<div class="row">
-
+					<div id="mosactext">
 	<?php // The Loop
 	$count = 0;
 	while ( $the_query->have_posts() ) : $the_query->the_post();
@@ -38,8 +38,9 @@ if ( $the_query->have_posts() ) { ?>
 	 * original $wp_query and it does not need to be reset.
 	*/
 	wp_reset_postdata(); ?>
-				</div><!-- .box -->
-			</div><!-- .box -->
+				</div><!-- #mosactext -->
+				</div><!-- row-->
+			</div><!-- .span3 -->
 		</div><!-- row-->
 	</section>
 

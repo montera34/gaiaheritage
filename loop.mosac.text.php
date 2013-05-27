@@ -20,7 +20,7 @@ if ( $count == 1 && is_home() ) {
 }
 ?>
 	<article>
-		<div class="span1">
+		<div class="span1 mosactext">
 			<header>
 				<?php echo $tit_out; ?>
 			</header>
