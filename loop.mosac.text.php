@@ -1,6 +1,8 @@
 <?php
-if ( $home_sticky_pages == 1 ) { $perma = get_permalink(2); }
-else { $perma = get_permalink(); }
+//if ( $home_sticky_pages == 1 ) { $perma = get_permalink(2); }
+if ( is_page_template("page-about.php") || is_home() ) {
+	$perma = get_permalink(2);
+} else { $perma = get_permalink(); }
  
 if ( is_home() || is_page() ) {
 	$tit = get_the_title();
