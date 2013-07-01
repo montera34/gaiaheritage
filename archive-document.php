@@ -1,20 +1,22 @@
 <?php
 get_header();
 ?>
-
+documents archive
 <?php
 // document post type archive
-	$args = array(
-		'post_type' => 'document',
-		'posts_per_page' => '-1',
-	);
+//	$args = array(
+//		'post_type' => 'document',
+//		'posts_per_page' => '-1',
+//	);
 	$page_tit = "Downloads";
 	$page_perma = get_permalink();
 	$loop = "table";
 	$filters_out = "";
 
-$the_query = new WP_Query( $args );
-if ( $the_query->have_posts() ) { ?>
+//$the_query = new WP_Query( $args );
+//if ( $the_query->have_posts() ) {
+if ( have_posts() ) {
+?>
 	<section>
 		<header>
 			<div class="row sec-space">
@@ -41,8 +43,9 @@ if ( $the_query->have_posts() ) { ?>
 						<tbody>
 	<?php // The Loop
 	$count = 0;
-	while ( $the_query->have_posts() ) : $the_query->the_post();
-		$count++;
+	//while ( $the_query->have_posts() ) : $the_query->the_post();
+	while ( have_posts() ) : the_post();
+		$count++; //echo $count;
 		include "loop.".$loop.".php";
 		if ( $count == 4 ) { $count = 0; }
 	endwhile;
