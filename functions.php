@@ -246,11 +246,23 @@ function be_sample_metaboxes( $meta_boxes ) {//metaboxes common variables to all
 		'fields' => array(
 			array(
 				'name' => 'Document',
-				'desc' => 'Upload a document',
+				'desc' => 'Upload a document or write a URL',
 				'id' => $prefix . 'doc',
 				'type' => 'file',
 				'save_id' => true, // save ID using true
 				'allow' => array( 'url', 'attachment' ) // limit to just attachments with array( 'attachment' )
+			),
+			array(
+				'name' => 'Project title',
+				'desc' => 'title of a related project',
+				'id' => $prefix . 'rel-project-tit',
+				'type' => 'text_medium',
+			),
+			array(
+				'name' => 'Project URL',
+				'desc' => 'URL of a related project',
+				'id' => $prefix . 'rel-project',
+				'type' => 'text_medium',
 			),
 		),
 	);

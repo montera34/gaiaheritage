@@ -1,4 +1,8 @@
 <?php
+$rel_project_url = get_post_meta( $post->ID, '_gaia_rel-project', true );
+$rel_project_tit = get_post_meta( $post->ID, '_gaia_rel-project-tit', true );
+if ( $rel_project_tit == '' || $rel_project_url == '' ) { $rel_project_out = "none"; }
+else { $rel_project_out = "<a href='" .$rel_project_url. "' title='" .$rel_project_tit. "'>" .$rel_project_tit. "</a>"; }
 $args = array(
 	'post_type' => 'attachment',
 	'numberposts' => 1,
@@ -19,7 +23,7 @@ if ( $attachments ) {
 ?>
 	<tr class="table-row">
 		<td><a href="<?php echo $perma; ?>" title="<?php echo $tit; ?>"><?php echo $tit; ?></a></td>
-		<td><a href="<?php echo $perma; ?>" title="<?php echo $tit; ?>"><?php echo $tit; ?></a></td>
+		<td><?php echo $rel_project_out; ?></td>
 		<td><time datetime="<?php echo $date; ?>"><?php echo $date_human; ?></time></td>
 		<td><?php echo $format; ?></td>
 		<td><?php echo $size; ?></a></td>
