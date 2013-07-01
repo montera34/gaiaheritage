@@ -1,9 +1,8 @@
 <?php
 get_header();
 ?>
-
+projects archive
 <?php
-echo "project archive";
 // project post type archive
 
 //	$args = array(
@@ -11,18 +10,21 @@ echo "project archive";
 //		'posts_per_page' => '-1',
 //	);
 	$page_tit = "Projects";
-	$page_perma = $genvars['blogurl']. "/project";
+	$page_perma = $genvars['blogurl'];
+	//$page_perma = $genvars['blogurl']. "/project";
+	//$page_perma = $genvars['blogurl']. "?post_type=project"; // this way does not work
 	$loop = "mosac.img";
 	// filters
-	$years = get_terms( "year", $args );
+	//$years = get_terms( "year", $args );
+	$years = get_terms( "yearr", $args );
 	$countries = get_terms( "country", $args );
 	$filters_out = "
 	<div class='row mosac-row'>
 		<div class='span4'>
 			<form class='filter-form form-inline row' name='selec-tax' action='" .$page_perma. "' method='get'>
 			<fieldset class='span1'>
-			<label class='label-first' for='year'>Year</label>
-			<select name='year'>
+			<label class='label-first' for='yearr'>Year</label>
+			<select name='yearr'>
 				<option value='' selected>All</option>
 	";
 	foreach ( $years as $term ) {
@@ -45,6 +47,7 @@ echo "project archive";
 	";
 	$filters_out .= "
 			<fieldset class='span1'>
+			<input id='post_type' name='post_type' type='hidden' value='project' />
 			<input class='form-button' type='submit' value='Filter' />
 			</fieldset>
 			</form>
@@ -52,6 +55,16 @@ echo "project archive";
 	</div>
 	";
 
+// get vars caching
+//$get_country = wp_strip_all_tags($_GET['country']);
+//$get_year = wp_strip_all_tags($_GET['yearr']);
+//echo $get_year;
+//echo $get_country;
+//$args = array(
+//	'post_type' => 'project',
+//);
+//if ( $get_year != '' ) { $args['yearr'] = $get_year; }
+//if ( $get_country != '' ) { $args['country'] = $get_country; }
 //$the_query = new WP_Query( $args );
 //if ( $the_query->have_posts() ) {
 if ( have_posts() ) { ?>
@@ -88,7 +101,7 @@ if ( have_posts() ) { ?>
 
 <?php } else {
 // if no posts in this loop
-
+echo "no projects";
 } // end if have post ?>
 
 <?php get_footer(); ?>

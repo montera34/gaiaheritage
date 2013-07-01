@@ -142,12 +142,18 @@ function create_post_type() {
 add_action( 'init', 'build_taxonomies', 0 );
 
 function build_taxonomies() {
-register_taxonomy( 'year', 'project', array( // year taxonomy
+//register_taxonomy( 'year', 'project', array( // year taxonomy
+//	'hierarchical' => true,
+//	'label' => 'Year',
+//	'name' => 'Years',
+//	'query_var' => 'year',
+//	'rewrite' => array( 'slug' => 'year', 'with_front' => false ),) );
+register_taxonomy( 'yearr', 'project', array( // year taxonomy
 	'hierarchical' => true,
 	'label' => 'Year',
 	'name' => 'Years',
-	'query_var' => 'year',
-	'rewrite' => array( 'slug' => 'year', 'with_front' => false ),) );
+	'query_var' => 'yearr',
+	'rewrite' => array( 'slug' => 'yearr', 'with_front' => false ),) );
 register_taxonomy( 'country', 'project', array( // Country taxonomy
 	'hierarchical' => true,
 	'label' => 'Countries',
