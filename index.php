@@ -1,7 +1,6 @@
 <?php
 get_header();
 ?>
-
 <?php
 $args = array(
 	'post_type' => 'project',
@@ -59,6 +58,7 @@ if ( $the_query->have_posts() ) { ?>
 		<div class="span3">
 			<div class="row">
 <?php
+// home pages loop
 $args = array(
 	'post_type' => 'page',
 	'posts_per_page' => '3',
@@ -76,6 +76,7 @@ $the_query = new WP_Query( $args );
 
 if ( $the_query->have_posts() ) {
 	// The Loop
+	$home_sticky_pages = 1;
 	$count = 0;
 	while ( $the_query->have_posts() ) : $the_query->the_post();
 		$count++;

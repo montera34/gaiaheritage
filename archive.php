@@ -3,7 +3,7 @@ get_header();
 ?>
 
 <?php
-echo "project archive";
+echo "general archive";
 // project post type archive
 
 //	$args = array(
@@ -88,7 +88,7 @@ if ( have_posts() ) { ?>
 
 <?php } else {
 // if no posts in this loop
-
+	echo "No projects!";
 } // end if have post ?>
 
 <?php get_footer(); ?>

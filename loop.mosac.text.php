@@ -1,6 +1,7 @@
 <?php
-$perma = get_permalink();
-
+if ( $home_sticky_pages == 1 ) { $perma = get_permalink(2); }
+else { $perma = get_permalink(); }
+ 
 if ( is_home() || is_page() ) {
 	$tit = get_the_title();
 	$excerpt = get_the_excerpt();
