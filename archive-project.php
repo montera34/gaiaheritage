@@ -1,7 +1,6 @@
 <?php
 get_header();
 ?>
-projects archive
 <?php
 // project post type archive
 

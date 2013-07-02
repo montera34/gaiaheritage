@@ -1,7 +1,6 @@
 <?php
 get_header();
 ?>
-documents archive
 <?php
 // document post type archive
 //	$args = array(

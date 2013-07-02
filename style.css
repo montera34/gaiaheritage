@@ -155,10 +155,12 @@ h6 {
 	position: absolute;
 	top: 0px;
 }
-.archive .mosacimg-item-first img {
+.archive .mosacimg-item-first img,
+.home .mosacimg-item-first img {
 	right: 10px;
 }
-.archive .mosacimg-item:hover img {
+.archive .mosacimg-item:hover img,
+.home .mosacimg-item:hover img {
 	z-index: -1;
 }
 .mosacimg-item-tit {
