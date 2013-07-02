@@ -2,8 +2,7 @@
 get_header();
 ?>
 
-
-<?php echo "har";
+<?php
 $page_tit = get_the_title();
 $loop = "mosac.text";
 

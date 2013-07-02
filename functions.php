@@ -285,7 +285,65 @@ function be_sample_metaboxes( $meta_boxes ) {//metaboxes common variables to all
 			),
 		),
 	);
+	// extra fields in contact page
+	$rows = 5; // maximun number of rows
+	$count_rows = 0;
+	while ( $rows > $count_rows ) {
+		$count_rows++;
+		$meta_boxes[] = array(
+			'id' => 'contact_mail',
+			'title' => 'Emails',
+			'pages' => array('page'), // post type
+			'show_on' => array( 'key' => 'page-template', 'value' => 'page-contact.php' ),
+			'context' => 'side',
+			'priority' => 'high',
+			'show_names' => true, // Show field names on the left
+			'fields' => array(
+				array(
+					'name' => 'Email address name',
+					'desc' => '',
+					'id' => $prefix . 'email_name_'.$count_rows,
+					'type' => 'text_medium',
+				),
+				array(
+					'name' => 'Email address',
+					'desc' => '',
+					'id' => $prefix . 'email_address'.$count_rows,
+					'type' => 'text_medium',
+				),
+			),
+		);
+		$meta_boxes[] = array(
+			'id' => 'contact_address',
+			'title' => 'Postal addresses',
+			'pages' => array('page'), // post type
+			'show_on' => array( 'key' => 'page-template', 'value' => 'page-contact.php' ),
+			'context' => 'normal',
+			'priority' => 'high',
+			'show_names' => true, // Show field names on the left
+			'fields' => array(
+				array(
+					'name' => 'Postal address name',
+					'desc' => '',
+					'id' => $prefix . 'address_name_'.$count_rows,
+					'type' => 'text_medium',
+				),
+				array(
+					'name' => 'Complete address',
+					'desc' => '',
+					'id' => $prefix . 'address_complete_'.$count_rows,
+					'type' => 'wysiwyg',
+					'options' => array(
+					    'wpautop' => true, // use wpautop?
+					    'textarea_rows' => get_option('default_post_edit_rows', 2), // rows="..."
+					    'teeny' => false, // output the minimal editor config used in Press This
+					    'tinymce' => true, // load TinyMCE, can be used to pass settings directly to TinyMCE using an array()
+					),
+				),
+			),
+		);
 
+	}
 	return $meta_boxes;
 }
 add_filter( 'cmb_meta_boxes', 'be_sample_metaboxes' );
