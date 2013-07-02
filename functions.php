@@ -9,8 +9,8 @@ function gaia_scripts_method() {
 		'2.1.2',
 		TRUE
 	);
-	if ( get_post_type() == 'new' && !is_single() ) {
-	// if is new post type, load masonry
+	if ( get_post_type() == 'new' && !is_single() || is_page_template('page-about.php') ) {
+	// if is new post type or about page, load masonry
 		wp_enqueue_script(
 			'masonry',
 			get_template_directory_uri() . '/js/jquery.masonry.min.js',
@@ -18,14 +18,16 @@ function gaia_scripts_method() {
 			'2.1.08',
 			TRUE
 		);
+		if ( get_post_type() == 'new' && !is_single() ) { $sufix = "news"; }
+		else { $sufix = "about"; }
 		wp_enqueue_script(
 			'masonry.options',
-			get_template_directory_uri() . '/js/jquery.masonry.options.js',
+			get_template_directory_uri() . '/js/jquery.masonry.options-' .$sufix. '.js',
 			array( 'jquery','masonry' ),
 			'1.0',
 			TRUE
 		);
-	} // end if new post type
+	} // end if new post type or about page
 }
 
 add_action( 'wp_print_scripts', 'gaia_scripts_method' );

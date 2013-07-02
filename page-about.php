@@ -7,7 +7,7 @@ get_header();
 
 
 <?php
-$page_tit = get_the_title();
+$page_tit = "Gaia Heritage";
 $loop = "mosac.text";
 
 $args = array(
@@ -31,16 +31,16 @@ $the_query = new WP_Query( $args );
 if ( $the_query->have_posts() ) { ?>
 	<section>
 		<header>
-			<div class="row sec-space">
+			<div class="row sec-space-separated">
 				<div class="span4">
 					<h2 class="sec-tit catcheye"><?php echo $page_tit ?></h2>
 				</div>
 			</div>
 		</header>
 		<div class="row">
-			<div class="span4 box">
-
+			<div class="span3">
 				<div class="row mosac-row">
+					<div id="mosactext">
 	<?php // The Loop
 	$count = 0;
 	while ( $the_query->have_posts() ) : $the_query->the_post();
@@ -54,8 +54,9 @@ if ( $the_query->have_posts() ) { ?>
 	 * original $wp_query and it does not need to be reset.
 	*/
 	wp_reset_postdata(); ?>
+					</div><!-- #mosactext -->
 				</div><!-- .row -->
-			</div><!-- .box -->
+			</div><!-- .span4 -->
 		</div><!-- row-->
 	</section>
 

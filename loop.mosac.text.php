@@ -4,7 +4,12 @@ if ( is_page_template("page-about.php") || is_home() ) {
 	$perma = get_permalink(2);
 } else { $perma = get_permalink(); }
  
-if ( is_home() || is_page() ) {
+if ( is_page_template("page-about.php") ) {
+	$tit = get_the_title();
+	$excerpt = get_the_content();
+	$excerpt = apply_filters( 'the_content', $excerpt );
+
+} elseif ( is_home() || is_page() && !is_page_template('page-about.php') ) {
 	$tit = get_the_title();
 	$excerpt = get_the_excerpt();
 
@@ -21,15 +26,23 @@ if ( $count == 1 && is_home() ) {
 } else {
 	$tit_out = "<h2 class='sec-tit'>" .$tit. "</h2>";
 }
+// number of cols
+if ( is_page_template("page-about.php") ) {
+	$cols = get_post_meta( $post->ID, '_gaia_box_cols', true );
+	if ( $cols == '' ) { $cols = 1; }
+} else { $cols = 1; }
+$span_class = "span".$cols;
 ?>
 	<article>
-		<div class="span1 mosactext">
+		<div class="<?php echo $span_class ?> mosactext">
 			<header>
 				<?php echo $tit_out; ?>
 			</header>
 			<div class="box mosactext-item">
 				<div class="boxitem-space mosactext-item-text"><?php echo $excerpt; ?></div>
 			</div>
-			<div class="mosactext-more"><a href="<?php echo $perma; ?>" title="<?php echo $tit; ?>">+</a></div>
+			<?php if ( is_page_template('page-about.php') ) {} else { ?>
+				<div class="mosactext-more"><a href="<?php echo $perma; ?>" title="<?php echo $tit; ?>">+</a></div>
+			<?php } ?>
 		</div>
 	</article>
