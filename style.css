@@ -177,6 +177,9 @@ h6 {
 	-moz-column-gap: 20px;
 	column-gap: 20px;
 }
+.mosactext-item-first {
+	margin-left: 10px;
+}
 .mosactext-more {
 	margin-top: 7px;
 }

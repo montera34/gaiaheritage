@@ -291,8 +291,8 @@ function be_sample_metaboxes( $meta_boxes ) {//metaboxes common variables to all
 	while ( $rows > $count_rows ) {
 		$count_rows++;
 		$meta_boxes[] = array(
-			'id' => 'contact_mail',
-			'title' => 'Emails',
+			'id' => 'contact_mail_'.$count_rows,
+			'title' => 'Email '.$count_rows,
 			'pages' => array('page'), // post type
 			'show_on' => array( 'key' => 'page-template', 'value' => 'page-contact.php' ),
 			'context' => 'side',
@@ -314,8 +314,8 @@ function be_sample_metaboxes( $meta_boxes ) {//metaboxes common variables to all
 			),
 		);
 		$meta_boxes[] = array(
-			'id' => 'contact_address',
-			'title' => 'Postal addresses',
+			'id' => 'contact_address_'.$count_rows,
+			'title' => 'Postal addresses '.$count_rows,
 			'pages' => array('page'), // post type
 			'show_on' => array( 'key' => 'page-template', 'value' => 'page-contact.php' ),
 			'context' => 'normal',
