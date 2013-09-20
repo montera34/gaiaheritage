@@ -64,6 +64,13 @@ $genvars = array(
 <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
 
 <?php
+// extra style for menu items
+$pt = wp_strip_all_tags($_GET['post_type']);
+if ( $pt != '' ) { ?>
+<style>
+.post-type-<?php echo $pt ?> a { border-bottom: 3px solid; }
+</style>
+<?php }
 // if ( is_singular() ) wp_enqueue_script( 'comment-reply' );
 wp_head(); ?>
 </head>
