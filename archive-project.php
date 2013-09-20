@@ -17,6 +17,15 @@ get_header();
 	//$years = get_terms( "year", $args );
 	$years = get_terms( "yearr", $args );
 	$countries = get_terms( "country", $args );
+	$current_yearr = wp_strip_all_tags($_GET['yearr']);
+	$current_country = wp_strip_all_tags($_GET['country']);
+
+	$options_out = "";
+	foreach ( $years as $term ) {
+		if ( $term->slug == $current_yearr ) { $options_out .= "<option value='" .$term->slug. "' selected>" .$term->name. "</option>"; $selected = true; }
+		else { $options_out .= "<option value='" .$term->slug. "'>" .$term->name. "</option>"; }
+	}
+	if ( $selected == true ) { $selected_out = ""; } else { $selected_out = " selected"; }
 	$filters_out = "
 	<div class='row mosac-row'>
 		<div class='span4'>
@@ -24,27 +33,26 @@ get_header();
 			<fieldset class='span1'>
 			<label class='label-first' for='yearr'>Year</label>
 			<select name='yearr'>
-				<option value='' selected>All</option>
-	";
-	foreach ( $years as $term ) {
-		$filters_out .= "<option value='" .$term->slug. "'>" .$term->name. "</option>";
-	}
-	$filters_out .= "
+				<option value=''" .$selected_out. ">All</option>
+				" .$options_out. "
 			</select>
 			</fieldset>
+	";
+
+	unset($selected); unset($selected_out); $options_out = "";
+	foreach ( $countries as $term ) {
+		if ( $term->slug == $current_country ) { $options_out .= "<option value='" .$term->slug. "' selected>" .$term->name. "</option>"; $selected = true; }
+		else { $options_out .= "<option value='" .$term->slug. "'>" .$term->name. "</option>"; }
+	}
+	if ( $selected == true ) { $selected_out = ""; } else { $selected_out = " selected"; }
+	$filters_out .= "
 			<fieldset class='span1'>
 			<label for='country'>Country</label>
 			<select name='country'>
-				<option value='' selected>All</option>
-	";
-	foreach ( $countries as $term ) {
-		$filters_out .= "<option value='" .$term->slug. "'>" .$term->name. "</option>";
-	}
-	$filters_out .= "
+				<option value=''" .$selected_out. ">All</option>
+				" .$options_out. "
 			</select>
 			</fieldset>
-	";
-	$filters_out .= "
 			<fieldset class='span1'>
 			<input class='form-button' type='submit' value='Filter' />
 			<input id='post_type' name='post_type' type='hidden' value='project' />
@@ -53,19 +61,6 @@ get_header();
 		</div>
 	</div>
 	";
-
-// get vars caching
-//$get_country = wp_strip_all_tags($_GET['country']);
-//$get_year = wp_strip_all_tags($_GET['yearr']);
-//echo $get_year;
-//echo $get_country;
-//$args = array(
-//	'post_type' => 'project',
-//);
-//if ( $get_year != '' ) { $args['yearr'] = $get_year; }
-//if ( $get_country != '' ) { $args['country'] = $get_country; }
-//$the_query = new WP_Query( $args );
-//if ( $the_query->have_posts() ) {
 ?>
 	<section>
 		<header>
