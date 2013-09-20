@@ -21,8 +21,8 @@ h3,
 h4,
 h5,
 h6 {
-	font-size: 11px;
-	line-height: 14px;
+	font-size: inherit;
+	line-height: inherit;
 }
 .sec-tit {
 	text-transform: uppercase;
@@ -119,7 +119,7 @@ h6 {
 /* imgs mosac */
 .mosacimg-item {
 	position: relative;
-	height: 165px;
+	height: 180px;
 	overflow: hidden;
 	text-indent: -9999px;
 	margin-bottom: 20px;
@@ -132,10 +132,10 @@ h6 {
 }
 .noimg {
 	text-indent: 0;
-	background-color: #3cf;
+	background-color: #00aad4;
 }
 .mosacimg-item:hover {
-	background-color: #3cf;
+	background-color: #00aad4;
 	text-indent: 0;
 	color: white;
 }
@@ -188,7 +188,7 @@ h6 {
 .mosactext-more a {
 	color: white;
 	text-decoration: none;
-	background-color: #3cf;
+	background-color: #00aad4;
 	padding: 3px 5px;
 }
 
@@ -231,8 +231,8 @@ h6 {
 	-moz-appearance: none;
 }
 .form-button {
-	background-color: #3cf;
-	border: 4px solid #3cf;
+	background-color: #00aad4;
+	border: 4px solid #00aad4;
 	color: white;
 	font-weight: bold;
 }
