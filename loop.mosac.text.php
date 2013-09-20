@@ -42,7 +42,7 @@ $span_class = "span".$cols;
 				<div class="boxitem-space mosactext-item-text"><?php echo $excerpt; ?></div>
 			</div>
 			<?php if ( is_page_template('page-about.php') ) {} else { ?>
-				<div class="mosactext-more"><a href="<?php echo $perma; ?>" title="<?php echo $tit; ?>">+</a></div>
+				<div class="mosactext-more"><a href="<?php echo $perma; ?>" title="<?php echo $tit; ?>">+ info</a></div>
 			<?php } ?>
 		</div>
 	</article>

@@ -21,11 +21,11 @@ if ( has_post_thumbnail() ) {
 	<article>
 		<div class="span1">
 			<div class="mosacimg-item<?php echo $item_class; ?>">
+			<?php echo $img_out; ?>
 			<a href="<?php echo $perma; ?>" title="<?php echo $tit; ?>">
 				<h3 class="boxitem-space mosacimg-item-tit"><?php echo $tit; ?></h3>
 				<div class="boxitem-space mosacimg-item-text"><?php echo $excerpt; ?></div>
 			</a>
-			<?php echo $img_out; ?>
 			</div>
 		</div>
 	</article>

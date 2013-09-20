@@ -121,7 +121,7 @@ h6 {
 	position: relative;
 	height: 180px;
 	overflow: hidden;
-	text-indent: -9999px;
+	/*text-indent: -9999px;*/
 	margin-bottom: 20px;
 }
 .gallery .mosacimg-item {
@@ -131,12 +131,12 @@ h6 {
 	height: 345px;
 }
 .noimg {
-	text-indent: 0;
+	/*text-indent: 0;*/
 	background-color: #00aad4;
 }
 .mosacimg-item:hover {
 	background-color: #00aad4;
-	text-indent: 0;
+	/*text-indent: 0;*/
 	color: white;
 }
 .noimg:hover {
@@ -229,6 +229,7 @@ h6 {
 	appearance: none;
 	-webkit-appearance: caret;
 	-moz-appearance: none;
+	border: 0;
 }
 .form-button {
 	background-color: #00aad4;
@@ -241,6 +242,7 @@ h6 {
 	text-decoration: none;
 	color: white;
 }
+input[type="hidden"] { height: 0; width: 0;}
 
 /* single */
 .filter-single {
