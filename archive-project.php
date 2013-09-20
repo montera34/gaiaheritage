@@ -46,8 +46,8 @@ get_header();
 	";
 	$filters_out .= "
 			<fieldset class='span1'>
-			<input id='post_type' name='post_type' type='hidden' value='project' />
 			<input class='form-button' type='submit' value='Filter' />
+			<input id='post_type' name='post_type' type='hidden' value='project' />
 			</fieldset>
 			</form>
 		</div>
@@ -66,7 +66,7 @@ get_header();
 //if ( $get_country != '' ) { $args['country'] = $get_country; }
 //$the_query = new WP_Query( $args );
 //if ( $the_query->have_posts() ) {
-if ( have_posts() ) { ?>
+?>
 	<section>
 		<header>
 			<div class="row sec-space">
@@ -80,27 +80,28 @@ if ( have_posts() ) { ?>
 
 				<?php echo $filters_out ?>
 				<div class="row mosac-row">
-	<?php // The Loop
-	$count = 0;
-	//while ( $the_query->have_posts() ) : $the_query->the_post();
-	while ( have_posts() ) : the_post();
-		$count++;
-		include "loop.".$loop.".php";
-		if ( $count == 4 ) { $count = 0; }
-	endwhile;
-	/* Restore original Post Data 
-	 * NB: Because we are using new WP_Query we aren't stomping on the 
-	 * original $wp_query and it does not need to be reset.
-	*/
-	wp_reset_postdata(); ?>
+	<?php if ( have_posts() ) {
+		// The Loop
+		$count = 0;
+		//while ( $the_query->have_posts() ) : $the_query->the_post();
+		while ( have_posts() ) : the_post();
+			$count++;
+			include "loop.".$loop.".php";
+			if ( $count == 4 ) { $count = 0; }
+		endwhile;
+		/* Restore original Post Data 
+		 * NB: Because we are using new WP_Query we aren't stomping on the 
+		 * original $wp_query and it does not need to be reset.
+		*/
+		wp_reset_postdata();
+	} else {
+		// if no posts in this loop
+		echo "<div class='span4 boxitem-space'><strong>We have found no projects with these criteria. Try again!</strong></div>";
+	} // end if have post ?>
 				</div><!-- .row -->
 			</div><!-- .box -->
 		</div><!-- row-->
 	</section>
 
-<?php } else {
-// if no posts in this loop
-echo "no projects";
-} // end if have post ?>
 
 <?php get_footer(); ?>
