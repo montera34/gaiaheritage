@@ -90,14 +90,15 @@ wp_head(); ?>
 			<div id="gaia" class="span4">
 				<div class="row">
 					<h1 class="span1"><?php echo "<a href='" .$genvars['blogurl']. "' title='Ir al inicio'>" .$genvars['blogname']. "</a>"; ?></h1>
-					<div class="span1 offset2"><h2 style="padding-left: 50%;"><?php echo $genvars['blogdesc']; ?></h2></div>
+					<div class="span1 offset2"><h2><?php echo $genvars['blogdesc']; ?></h2></div>
 				</div>
 			</div><!-- #gaia -->
 		</div>
 	</div><!-- #pre -->
 
 	<nav>
-	<div id="premenu" class="navbar">
+	<div id="premenu" class="container">
+	<div class="navbar">
 		<div class="navbar-inner">
 			<div class="container">
 				<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
@@ -125,7 +126,8 @@ wp_head(); ?>
 				</div>
 			</div><!-- .container-->
 		</div><!-- .navbar-inner -->
-	</div><!-- .navbar #premenu -->
+	</div><!-- .navbar -->
+	</div><!-- #premenu -->
 	</nav>
 </header>
 

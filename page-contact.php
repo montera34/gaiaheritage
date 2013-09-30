@@ -29,8 +29,9 @@ if ( have_posts() ) { ?>
 						<?php the_content(); ?>
 					</div><!-- .mosactext-item-first -->
 					</div><!-- .span1 -->
-					<div class="span1">
+					<div class="span1"><div class="boxitem-space">
 						<?php echo do_shortcode( '[contact-form-7 id="55" title="Contact form 1"]' ); ?>
+					</div><!-- .boxitem-space -->
 					</div><!-- .span1 -->
 					<?php // postal and email addresses
 					$postal_out = "";
@@ -47,11 +48,13 @@ if ( have_posts() ) { ?>
 						if ( $address_name != '' ) { $postal_out .= "<p><strong>" .$address_name. "</strong><br />" .$address_complete. "</p>"; }
 						if ( $mail_address != '' ) { $email_out .= "<p><strong>" .$mail_name. "</strong><br />" .$mail_address. "</p>"; }
 					} // end while ?>
-					<div class="span1">
+					<div class="span1"><div class="boxitem-space">
 						<?php echo $postal_out ?>
+					</div><!-- .boxitem-space -->
 					</div><!-- .span1 -->
-					<div class="span1">
+					<div class="span1"><div class="boxitem-space">
 						<?php echo $email_out ?>
+					</div><!-- .boxitem-space -->
 					</div><!-- .span1 -->
 	<?php
 //		$count++;

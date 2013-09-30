@@ -29,7 +29,8 @@ if ( have_posts() ) {
 
 				<?php echo $filters_out ?>
 				<div class="row mosac-row">
-					<table class="table table-hover span4">
+					<div class="span4">
+					<table class="table table-hover">
 						<thead class="table-head">
 							<tr>
 								<th>Document</th>
@@ -55,6 +56,7 @@ if ( have_posts() ) {
 	wp_reset_postdata(); ?>
 						</tbody>
 					</table>
+					</div><!-- .span4 -->
 				</div><!-- .row -->
 			</div><!-- .box -->
 		</div><!-- row-->
