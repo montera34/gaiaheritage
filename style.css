@@ -50,18 +50,18 @@ h6 {
 }
 .box-catcheye {
 	background-color: #ff6;
-	padding: 42px 10px 14px;
+	padding: 14px 10px 5px;
 }
 .sec-space {
-	margin-top: 56px;
+	margin-top: 28px;
 }
 .sec-space-separated {
-	margin-top: 56px;
+	margin-top: 28px;
 	margin-bottom: 28px;
 }
 .box {
 	background-color: white;
-	padding: 42px 0 14px;
+	padding: 14px 0 7px;
 }
 .box-space {
 	margin-top: 14px;
@@ -156,7 +156,7 @@ h6 {
 /* imgs mosac */
 .mosacimg-item {
 	/*text-indent: -9999px;*/
-	margin-bottom: 20px;
+	margin: 6px 0 13px;
 }
 @media (min-width: 980px) and (max-width: 1199px) {
 	.mosacimg-item-first:hover {
@@ -248,7 +248,7 @@ h6 {
 
 /* text mosac */
 .mosactext {
-	padding-bottom: 20px;
+	padding-bottom: 28px;
 }
 .span2 .mosactext-item-text {
 	-webkit-column-count: 2;
@@ -262,12 +262,12 @@ h6 {
 	padding-left: 10px;
 }
 @media (min-width: 767px) {
-.page-template-page-contact-php .boxitem-space {
-	padding: 0;
+	.page-template-page-contact-php .boxitem-space {
+		padding: 0;
+	}
 }
-/*	.mosactext-item {
-		padding-left: 10px;
-	}*/
+.mosactext-item-tit {
+	margin-top: 0;
 }
 
 .mosactext-more {
@@ -282,8 +282,12 @@ h6 {
 
 /* list */
 .list-item {
-	margin-bottom: 14px;
+	margin-top: 14px;
 }
+.list-item-first {
+	margin-top: 0;
+}
+
 .list-item-tit {
 	margin: 0;
 }
@@ -303,7 +307,7 @@ h6 {
 /* forms */
 @media (min-width: 768px) {
 	.filter-form {
-		margin-bottom: 42px;
+		margin-bottom: 14px;
 	}
 	.filter-form .label-first {
 		padding-left: 10px;
@@ -355,7 +359,7 @@ input[type="hidden"] { height: 0; width: 0;}
 
 /* single */
 .filter-single {
-	margin-bottom: 42px;
+	margin-bottom: 28px;
 }
 .filter-single .label-first {
 	padding-left: 10px;
