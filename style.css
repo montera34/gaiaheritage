@@ -75,6 +75,22 @@ h6 {
 	padding: 0 10px;
 }
 
+@media (min-width: 1200px) {
+	.three_columns {
+	  -webkit-column-count: 3;  -webkit-column-gap: 25px; /* Chrome, Safari 3 */
+	     -moz-column-count: 3;     -moz-column-gap: 25px; /* Firefox 3.5+ */
+	          column-count: 3;          column-gap: 25px; /* Opera 11+ */
+	}
+}
+@media (min-width: 960px) and (max-width: 1199px) {
+	.three_columns {
+	  -webkit-column-count: 3;  -webkit-column-gap: 20px; /* Chrome, Safari 3 */
+	     -moz-column-count: 3;     -moz-column-gap: 20px; /* Firefox 3.5+ */
+	          column-count: 3;          column-gap: 20px; /* Opera 11+ */
+	}
+}
+
+
 /* bootstrap navbar new styles */
 .navbar {
 	margin-bottom: 0;
@@ -258,6 +274,10 @@ input[type="hidden"] { height: 0; width: 0;}
 }
 .gallery .row {
 }
+.reldocs-tit {
+	margin-top: 0;
+}
+
 
 /* footer */
 #epi {

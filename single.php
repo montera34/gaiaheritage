@@ -2,6 +2,36 @@
 get_header();
 
 $page_tit = get_the_title();
+
+// related docs loop
+$args = array(
+	'post_type' => 'document',
+	'posts_per_page' => '-1',
+	'meta_query' => array(
+		array(
+			'key' => '_gaia_rel-project-tit',
+			'compare' => '=',
+			'value' => $page_tit
+		),
+	),
+);
+$the_query = new WP_Query( $args );
+
+if ( $the_query->have_posts() ) {
+	$reldocs_out = "<section><div id='reldocs' class='span1'><h3 class='reldocs-tit'>Documents</h3>";
+	// The Loop
+	while ( $the_query->have_posts() ) : $the_query->the_post();
+		$reldoc_tit = get_the_title();
+		$reldoc_perma = get_permalink();
+		$reldocs_out .= "<div class='list-item'><strong><a href='" .$reldoc_perma. "' title='" .$reldoc_tit. "'>" .$reldoc_tit. "</strong></div>";
+	endwhile;
+	$reldocs_out .= "</div></section>";
+	wp_reset_postdata();
+
+} // end if have post 
+// end related docs loop
+
+
 $loop = "single";
 $taxs = array(
 	array(
@@ -79,7 +109,9 @@ if ( have_posts() ) { ?>
 	 * NB: Because we are using new WP_Query we aren't stomping on the 
 	 * original $wp_query and it does not need to be reset.
 	*/
-	wp_reset_postdata(); ?>
+	wp_reset_postdata();
+
+				echo $reldocs_out ?>
 				</div><!-- .row -->
 			</div><!-- .box -->
 		</div><!-- row-->
