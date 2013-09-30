@@ -23,7 +23,7 @@ if ( $the_query->have_posts() ) { ?>
 			</div>
 		</header>
 		<div class="row">
-			<div class="span3">
+			<div class="span4">
 				<div class="row">
 					<div id="mosactext">
 	<?php // The Loop
@@ -40,7 +40,7 @@ if ( $the_query->have_posts() ) { ?>
 	wp_reset_postdata(); ?>
 				</div><!-- #mosactext -->
 				</div><!-- row-->
-			</div><!-- .span3 -->
+			</div><!-- .span4 -->
 		</div><!-- row-->
 	</section>
 

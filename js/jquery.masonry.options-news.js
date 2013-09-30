@@ -4,7 +4,7 @@ jQuery(window).load(function(){
 	itemSelector: '.mosactext',
 //	columnWidth: 240,
 	columnWidth: function( containerWidth ) {
-		return containerWidth / 3;
+		return containerWidth / 4;
 	},
 //	gutterWidth: 10,
 	isAnimated: true,
