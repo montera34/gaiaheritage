@@ -64,13 +64,20 @@ $genvars = array(
 <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
 
 <?php
-// extra style for menu items
-$pt = wp_strip_all_tags($_GET['post_type']);
-if ( $pt != '' ) { ?>
-<style>
-.post-type-<?php echo $pt ?> a { border-bottom: 3px solid; }
-</style>
+// extra styles for menu items
+$archive_pt = wp_strip_all_tags($_GET['post_type']);
+$single_pt = get_post_type();
+if ( $archive_pt != '' || $single_pt != '' ) { ?>
+	<style>
+	<?php if ( $archive_pt != '' ) { // when project archive ?>
+		.post-type-<?php echo $archive_pt ?> a { border-bottom: 3px solid; }
+	<?php }
+	if ( $single_pt != '' ) { // when project archive ?>
+		.post-type-<?php echo $single_pt ?> a { border-bottom: 3px solid; }
+	<?php } ?>
+	</style>
 <?php }
+
 // if ( is_singular() ) wp_enqueue_script( 'comment-reply' );
 wp_head(); ?>
 </head>
