@@ -9,7 +9,7 @@ $args = array(
 	'posts_per_page' => '-1',
 	'meta_query' => array(
 		array(
-			'key' => '_gaia_rel-project-tit',
+			'key' => "_gaia_rel-project-tit",
 			'compare' => '=',
 			'value' => $page_tit
 		),
@@ -22,7 +22,7 @@ if ( $the_query->have_posts() ) {
 	// The Loop
 	while ( $the_query->have_posts() ) : $the_query->the_post();
 		$reldoc_tit = get_the_title();
-		$reldoc_perma = get_permalink();
+		$reldoc_perma = get_post_meta( $post->ID, '_gaia_doc', true );
 		$reldocs_out .= "<div class='list-item'><strong><a href='" .$reldoc_perma. "' title='" .$reldoc_tit. "'>" .$reldoc_tit. "</strong></div>";
 	endwhile;
 	$reldocs_out .= "</div></section>";
