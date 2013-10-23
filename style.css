@@ -154,31 +154,52 @@ h6 {
 }
 
 /* imgs mosac */
-.mosacimg-item {
+.home .mosacimg-item,
+.archive .mosacimg-item {
 	/*text-indent: -9999px;*/
 	margin: 6px 0 13px;
 }
-@media (min-width: 980px) and (max-width: 1199px) {
-	.mosacimg-item-first:hover {
-		width: 210px;
+@media (min-width: 1200px) {
+	.mosacimg-item {
+		height: 200px;
 	}
-	.mosacimg-item-img img {
+
+}
+@media (min-width: 980px) and (max-width: 1199px) {
+	.mosacimg-item-first:hover,
+	.gallery-item-first:hover {
+		/*width: 210px;*/
+	}
+	.mosacimg-item-img img,
+	.gallery-item-img img {
 		max-width: 250px;
 	}
-	.mosacimg-item {
+	.mosacimg-item-text,
+	.mosacimg-item-tit {
 		font-size: 90%;
+		line-height: 1.5em;
+	}
+	.mosacimg-item {
+		height: 180px;
 	}
 
 }
 @media (min-width: 768px) and (max-width: 979px) {
-	.mosacimg-item-first:hover {
-		width: 170px;
+	.mosacimg-item-first:hover,
+	.gallery-item-first:hover {
+		/*width: 170px;*/
 	}
-	.mosacimg-item-img img {
+	.mosacimg-item-img img,
+	.gallery-item-img img {
 		max-width: 210px;
 	}
+	.mosacimg-item-text,
+	.mosacimg-item-tit {
+		font-size: 88%;
+		line-height: 1.4em;
+	}
 	.mosacimg-item {
-		font-size: 90%;
+		height: 157px;
 	}
 
 }
@@ -187,24 +208,28 @@ h6 {
 		padding-top: 20px;
 		border-top: 5px solid #eee;
 	}
-	.mosacimg-item a {
+	.gallery-item {
+		padding-top: 20px;
+	}
+	.mosacimg-item a,
+	.gallery-item a {
 		color: inherit;
 	}
-	.mosacimg-item-img {
+	.mosacimg-item-img,
+	.gallery-item-img {
 		padding: 0 10px;
 	}
 }
 @media (min-width: 768px) {
 	.mosacimg-item {
-		height: 180px;
 		position: relative;
 		overflow: hidden;
 	}
-	.gallery .span2 .mosacimg-item {
+	/*.gallery .span2 .mosacimg-item {
 		height: 345px;
-	}
+	}*/
 	.mosacimg-item-first {
-		left: 10px;
+		/*left: 10px;*/
 	}
 	.mosacimg-item-last {
 		margin-right: 10px;
@@ -215,7 +240,7 @@ h6 {
 	}
 	.archive .mosacimg-item-first img,
 	.home .mosacimg-item-first img {
-		right: 10px;
+		/*right: 10px;*/
 	}
 	.archive .mosacimg-item:hover img,
 	.home .mosacimg-item:hover img {
@@ -233,14 +258,14 @@ h6 {
 	.noimg:hover {
 		opacity: 0.8;
 	}
-	.gallery .mosacimg-item:hover {
+	.gallery .gallery-item:hover {
 		background-color: transparent;
 	}
 
 }
 
-.gallery .mosacimg-item {
-	margin-bottom: 10px;
+.gallery .gallery-item {
+	/*margin-bottom: 10px;*/
 }
 .mosacimg-item-tit {
 	text-transform: uppercase;
@@ -369,7 +394,15 @@ input[type="hidden"] { height: 0; width: 0;}
 .filter-single .label-last {
 	margin-right: 10px;
 }
+@media (max-width: 768px) {
+	.filter-single .label-middle,
+	.filter-single .label-last {
+		padding-left: 10px;
+	}
+}
+
 .gallery .row {
+	padding-bottom: 25px;
 }
 .reldocs-tit {
 	margin-top: 0;

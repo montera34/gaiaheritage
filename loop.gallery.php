@@ -8,7 +8,7 @@
 			if ( $row_img1 != '' ) {
 				$loop_out .= "
 				<div class='row'><div class='span2'>
-					<div class='mosacimg-item mosacimg-item-first'>
+					<div class='gallery-item gallery-item-first'>
 						<img style='right: 10px;' class='".$img_class."' src='".$row_img1."' alt='".$img_tit."' />
 					</div>
 				</div></div>
@@ -21,7 +21,7 @@
 			if ( $row_img1 != '' || $row_img2 != '' ) {
 				$loop_out .= "
 				<div class='row'><div class='span1'>
-					<div class='mosacimg-item mosacimg-item-first'>
+					<div class='gallery-item gallery-item-first'>
 						<img class='".$img_class."' src='".$row_img1."' alt='".$img_tit."' />
 					</div>
 				</div>
