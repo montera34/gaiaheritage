@@ -307,7 +307,9 @@ h6 {
 
 /* list */
 .list-item {
-	margin-top: 14px;
+	margin-top: 7px;
+	padding-top: 7px;
+	border-top: 1px solid #eee;
 }
 .list-item-first {
 	margin-top: 0;
