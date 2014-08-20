@@ -22,7 +22,7 @@ h4,
 h5,
 h6 {
 	font-size: inherit;
-	line-height: inherit;
+	line-height: 1.1em;
 }
 .sec-tit {
 	text-transform: uppercase;
@@ -33,10 +33,6 @@ h6 {
 }
 
 /* links */
-.mosacimg-item a {
-	color: white;
-	text-decoration: none;
-}
 #epi a {
 	color: #808080;
 	font-weight: bold;
@@ -72,7 +68,7 @@ h6 {
 	padding-top: 5px;
 }
 .boxitem-space {
-	padding: 0 10px;
+	padding: 5px 10px 0;
 }
 
 @media (min-width: 1200px) {
@@ -159,6 +155,43 @@ h6 {
 	/*text-indent: -9999px;*/
 	margin: 6px 0 13px;
 }
+.mosacimg-item a {
+	color: #fff;
+	text-decoration: none;
+}
+.mosacimg-item-tit {
+	margin: 0;
+}
+.mosacimg-item-text {
+	color: #fff;
+	background-color: rgba(0, 170, 212, 0.65);
+	height: 100%;
+}
+.withimg .mosacimg-item-text,
+.noimg .mosacimg-item-plus {
+	opacity: 0;
+	-webkit-transition: opacity 0.25s ease;
+	-moz-transition: opacity 0.25s ease;
+}
+.withimg:hover .mosacimg-item-text,
+.noimg:hover .mosacimg-item-plus {
+	opacity: 1;
+}
+.mosacimg-item-plus {
+	position: absolute;
+	bottom: 0;
+	padding: 5px 0;
+	width: 100%;
+	text-align: center;
+	font-size: 3em;
+	font-weight: bold;
+	background-color: #00aad4;
+}
+.withimg .mosacimg-item-plus:hover,
+.noimg .mosacimg-item-plus:hover {
+	opacity: 0.8;
+}
+
 @media (min-width: 1200px) {
 	.mosacimg-item {
 		height: 200px;
@@ -174,10 +207,9 @@ h6 {
 	.gallery-item-img img {
 		max-width: 250px;
 	}
-	.mosacimg-item-text,
-	.mosacimg-item-tit {
-		font-size: 90%;
-		line-height: 1.5em;
+	.mosacimg-item-text {
+		font-size: 0.85em;
+		line-height: 1.4em;
 	}
 	.mosacimg-item {
 		height: 180px;
@@ -193,9 +225,8 @@ h6 {
 	.gallery-item-img img {
 		max-width: 210px;
 	}
-	.mosacimg-item-text,
-	.mosacimg-item-tit {
-		font-size: 88%;
+	.mosacimg-item-text {
+		font-size: 0.85em;
 		line-height: 1.4em;
 	}
 	.mosacimg-item {
@@ -246,18 +277,17 @@ h6 {
 	.home .mosacimg-item:hover img {
 		z-index: -1;
 	}
-	.noimg {
-		/*text-indent: 0;*/
+/*	.noimg {
 		background-color: #00aad4;
 	}
 	.mosacimg-item:hover {
 		background-color: #00aad4;
-		/*text-indent: 0;*/
 		color: white;
 	}
 	.noimg:hover {
 		opacity: 0.8;
 	}
+*/
 	.gallery .gallery-item:hover {
 		background-color: transparent;
 	}
