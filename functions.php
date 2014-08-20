@@ -1,6 +1,26 @@
 <?php
 // register js scripts to avoid conflicts
 function gaia_scripts_method() {
+	if ( get_post_type() == 'new' && !is_single() || is_page_template('page-about.php') ) {
+	// if is new post type or about page, load masonry
+		wp_enqueue_script(
+			'imagesloaded-js',
+			get_template_directory_uri() . '/js/imagesloaded.pkgd.min.js',
+			array(),
+			'3.1.8',
+			TRUE
+		);
+		wp_enqueue_script( 'masonry' );
+		if ( get_post_type() == 'new' && !is_single() ) { $sufix = "news"; }
+		else { $sufix = "about"; }
+		wp_enqueue_script(
+			'masonry.options',
+			get_template_directory_uri() . '/js/jquery.masonry.options-' .$sufix. '.js',
+			array( 'masonry' ),
+			'1.0',
+			TRUE
+		);
+	} // end if new post type or about page
 	wp_enqueue_script('jquery');
 	wp_enqueue_script(
 		'bootstrap.min',
@@ -9,25 +29,7 @@ function gaia_scripts_method() {
 		'2.1.2',
 		TRUE
 	);
-	if ( get_post_type() == 'new' && !is_single() || is_page_template('page-about.php') ) {
-	// if is new post type or about page, load masonry
-		wp_enqueue_script(
-			'masonry',
-			get_template_directory_uri() . '/js/jquery.masonry.min.js',
-			array( 'jquery' ),
-			'2.1.08',
-			TRUE
-		);
-		if ( get_post_type() == 'new' && !is_single() ) { $sufix = "news"; }
-		else { $sufix = "about"; }
-		wp_enqueue_script(
-			'masonry.options',
-			get_template_directory_uri() . '/js/jquery.masonry.options-' .$sufix. '.js',
-			array( 'jquery','masonry' ),
-			'1.0',
-			TRUE
-		);
-	} // end if new post type or about page
+
 }
 
 add_action( 'wp_print_scripts', 'gaia_scripts_method' );

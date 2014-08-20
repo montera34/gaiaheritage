@@ -66,6 +66,7 @@ $taxs = array(
 $filters_out = "<div class='row mosac-row'>";
 foreach ( $taxs as $tax ) {
 	$terms = get_the_terms($post->ID,$tax['slug']);
+	if ( $terms != '' ) {
 	$terms_out = "";
 	foreach ( $terms as $term ) {
 		$term_perma = get_term_link($term);
@@ -81,6 +82,7 @@ foreach ( $taxs as $tax ) {
 			" .$terms_out. "
 		</div>
 	";
+	}
 }
 $filters_out .= "</div><!-- .mosac-row -->";
 if ( have_posts() ) { ?>
