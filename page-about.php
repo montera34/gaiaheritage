@@ -61,30 +61,25 @@ if ( $the_query->have_posts() ) { ?>
 		<?php // links query
 		$links = get_bookmarks();
 		if ( $links[0] != '' ) {
-			$links_out = "
+			echo "
 			<div class='span1'>
 				<div class='row'>
 					<div class='span1'>
 						<header><h2 class='sec-tit'>Links</h2></header>
 						<div class='box'>
 			";
-			//print_r($links);
+			$which_loop = "links";
+			$list_count = 0;
 			foreach ( $links as $link ) {
-				if ( $link->link_description != '' ) { $link_desc = "<div class='boxitem-space list-item-text'>" .$link->link_description. "</div>"; } else { $link_desc = ""; }
-				$links_out .= "
-					<div class='list-item'>
-						<h3 class='boxitem-space list-item-tit'><a href='" .$link->link_url. "' title='" .$link->link_name. "'>" .$link->link_name. "</a></h3>
-						" .$link_desc. "
-					</div><!-- .list-item -->
-				";
+				$list_count++;
+				include "loop.list.php";
 			}
-			$links_out .= "
+			echo "
 						</div><!-- .box -->
 					</div><!-- .span1 -->
 				</div><!-- .row -->
 			</div><!-- .span1 -->
 			";
-			echo $links_out;
 		}
 		?>
 		</div><!-- row-->

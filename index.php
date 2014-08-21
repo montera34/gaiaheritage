@@ -116,6 +116,7 @@ $the_query = new WP_Query( $args );
 $list_count = 0;
 if ( $the_query->have_posts() ) { ?>
 	<?php // The Loop
+	$which_loop = "news";
 	while ( $the_query->have_posts() ) : $the_query->the_post();
 		$list_count++;
 		include "loop.list.php";
