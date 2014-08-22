@@ -105,10 +105,22 @@ h6 {
 .navbar .nav {
 }
 .navbar .nav>li {
-	padding: 0 30px 0 0;
+	padding: 0 25px 0 0;
 }
 .navbar .nav>li>a {
-	padding: 13px 3px 13px;
+	padding: 3px 5px;
+}
+.navbar .nav > li > a {
+	text-shadow: none;
+	color:;
+}
+#premenu a {
+	text-transform: uppercase;
+}
+
+.current-menu-item a {
+	background-color: #00aad4 !important;
+	color: #fff !important;
 }
 
 /* header */
@@ -139,14 +151,6 @@ h6 {
 	#gaia h2 {
 		text-align: right;
 	}
-}
-#premenu a {
-	text-transform: uppercase;
-	font-weight: bold;
-}
-
-.current-menu-item a {
-	border-bottom: 3px solid;
 }
 
 /* imgs mosac */
