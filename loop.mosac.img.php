@@ -29,8 +29,8 @@ if ( has_post_thumbnail() ) {
 			<?php //echo $img_out; ?>
 			<div class="mosacimg-item-text">
 				<h3 class="boxitem-space mosacimg-item-tit"><a href="<?php echo $perma; ?>" title="<?php echo $tit; ?>"><?php echo $tit; ?></a></h3>
-				<div class="boxitem-space mosacimg-item-desc"><?php echo $excerpt; ?></div>
-				<a class="mosacimg-item-plus" href="<?php echo $perma; ?>" title="<?php echo $tit; ?>">+</a>
+				<div class="boxitem-space mosacimg-item-desc"><?php echo $excerpt; ?> <a class="mosacimg-item-plus" href="<?php echo $perma; ?>" title="<?php echo $tit; ?>">+ info</a></div>
+				
 			</div>
 			</div>
 	</article>

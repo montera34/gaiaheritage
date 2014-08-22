@@ -162,30 +162,34 @@ h6 {
 .mosacimg-item-tit {
 	margin: 0;
 }
-.mosacimg-item-text {
+.noimg .mosacimg-item-text,
+.withimg .mosacimg-item-text {
 	color: #fff;
-	background-color: rgba(0, 170, 212, 0.65);
 	height: 100%;
 }
-.withimg .mosacimg-item-text,
+.noimg .mosacimg-item-text {
+	background-color: rgba(0, 170, 212, 0.65);
+}
+.withimg .mosacimg-item-desc,
 .noimg .mosacimg-item-plus {
 	opacity: 0;
 	-webkit-transition: opacity 0.25s ease;
 	-moz-transition: opacity 0.25s ease;
 }
-.withimg:hover .mosacimg-item-text,
+.withimg:hover .mosacimg-item-text {
+	background-color: rgba(0, 170, 212, 0.55);
+}
+.withimg:hover .mosacimg-item-desc,
 .noimg:hover .mosacimg-item-plus {
 	opacity: 1;
 }
+.mosacimg-item:hover .mosacimg-item-plus {
+	background-color: rgba(0, 170, 212, 1);
+}
 .mosacimg-item-plus {
-	position: absolute;
-	bottom: 0;
-	padding: 5px 0;
-	width: 100%;
-	text-align: center;
-	font-size: 3em;
-	font-weight: bold;
+	padding: 2px 5px;
 	background-color: #00aad4;
+	text-decoration: none;
 }
 .withimg .mosacimg-item-plus:hover,
 .noimg .mosacimg-item-plus:hover {
