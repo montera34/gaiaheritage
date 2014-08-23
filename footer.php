@@ -8,8 +8,7 @@ $genvars = array(
 	'blogtheme' => get_bloginfo('template_directory'), // theme url
 );
 ?>
-	</div><!-- .container -->
-</section>
+</div><!-- .container -->
 
 <footer>
 	<div id="epi" class="container">
