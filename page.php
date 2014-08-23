@@ -57,14 +57,14 @@ if ( $post->post_parent == '0' && count($children) >> 0 ) {
 } // end if this page has children
 ?>
 
-	<div class="row">
+	<div class="row sec-space">
 		<section class="span3">
 			<div class="row">
 				<div class="span4 page-menu"><?php echo $page_menu_out ?></div>
 			</div>
 			<article class="row">
 				<div class="span3 box">
-				<div class="boxitem-space">
+				<div class="boxitem-bigspace">
 					<?php the_content(); ?>
 				</div><!-- .boxitem-space -->
 				</div><!-- .box -->

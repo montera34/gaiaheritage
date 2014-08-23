@@ -70,6 +70,9 @@ h6 {
 .boxitem-space {
 	padding: 5px 10px 0;
 }
+.boxitem-bigspace {
+	padding: 10px 20% 0 10px;
+}
 
 @media (min-width: 1200px) {
 	.three_columns {
