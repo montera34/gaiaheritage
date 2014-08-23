@@ -117,11 +117,13 @@ h6 {
 #premenu a {
 	text-transform: uppercase;
 }
-
-.current-menu-item a {
+.current-menu-item a,
+.single-project .post-type-project a,
+.single-new .post-type-new a {
 	background-color: #00aad4 !important;
 	color: #fff !important;
 }
+
 
 /* header */
 #gaia h1 {
@@ -198,6 +200,29 @@ h6 {
 .withimg .mosacimg-item-plus:hover,
 .noimg .mosacimg-item-plus:hover {
 	opacity: 0.8;
+}
+
+/* page template */
+.page-menu-item,
+.page-menu-item h1 {
+	display: inline;	
+}
+.page-menu-item a {
+	padding: 3px 5px;
+	margin-right: 10px;
+	background-color: #ccc;
+	color: #fff;
+	text-decoration: none;
+}
+.page-menu-item a:hover {
+	background-color: #00aad4;
+}
+.page-menu-item h1 {
+	padding: 3px 5px;
+	margin-right: 10px;
+	background-color: #ff6;
+	color: #1a1a1a;
+	text-decoration: none;
 }
 
 @media (min-width: 1200px) {
