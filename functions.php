@@ -1,4 +1,15 @@
 <?php
+// excerpt lengh
+function gaia_excerpt_length( $length ) {
+	return 20;
+}
+add_filter( 'excerpt_length', 'gaia_excerpt_length', 999 );
+
+function gaia_excerpt_more( $more ) {
+	return '';
+}
+add_filter('excerpt_more', 'gaia_excerpt_more');
+
 // register js scripts to avoid conflicts
 function gaia_scripts_method() {
 	if ( get_post_type() == 'new' && !is_single() || is_page_template('page-about.php') ) {
