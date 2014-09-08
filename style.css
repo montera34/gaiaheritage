@@ -122,7 +122,9 @@ h6 {
 	text-transform: uppercase;
 }
 .current-menu-item a,
+.current-page-ancestor a,
 .single-project .post-type-project a,
+.post-type-archive-project .post-type-project a,
 .single-new .post-type-new a {
 	background-color: #00aad4 !important;
 	color: #fff !important;
@@ -200,6 +202,7 @@ h6 {
 	padding: 2px 5px;
 	background-color: #00aad4;
 	text-decoration: none;
+	white-space: nowrap;
 }
 .withimg .mosacimg-item-plus:hover,
 .noimg .mosacimg-item-plus:hover {
@@ -435,7 +438,6 @@ h6 {
 	background-color: #00aad4;
 	border: 4px solid #00aad4;
 	color: white;
-	font-weight: bold;
 }
 .form-button:hover {
 	opacity: 0.8;
@@ -453,16 +455,16 @@ input[type="hidden"] { height: 0; width: 0;}
 
 /* single */
 .filter-single {
-	margin-bottom: 28px;
+	margin-bottom: 14px;
 }
-.filter-single .label-first {
+.label-first dt,
+.label-first dd {
 	padding-left: 10px;
 }
-.filter-single .label-first,
-.filter-single .label-middle,
-.filter-single .label-last {
-	margin-right: 10px;
+.filter-single dd {
+	margin-left: 0;
 }
+
 @media (max-width: 768px) {
 	.filter-single .label-middle,
 	.filter-single .label-last {

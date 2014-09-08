@@ -28,7 +28,7 @@ if ( $the_query->have_posts() ) {
 	$reldocs_out .= "</div></section>";
 	wp_reset_postdata();
 
-} // end if have post 
+} else { $reldocs_out = ""; } // end if have post 
 // end related docs loop
 
 
@@ -37,28 +37,28 @@ $taxs = array(
 	array(
 		'slug' => 'country',
 		'name' => 'Country',
-		'term_class' => 'form-button',
+		'term_class' => 'single-term',
 		'label_class' => 'label-first',
 		'link' => 'yes'
 	),
 	array(
 		'slug' => 'yearr',
 		'name' => 'Year',
-		'term_class' => 'form-button',
+		'term_class' => 'single-term',
 		'label_class' => 'label-middle',
 		'link' => 'yes'
 	),
 	array(
 		'slug' => 'city',
 		'name' => 'City',
-		'term_class' => 'no-button',
+		'term_class' => 'single-term',
 		'label_class' => 'label-middle',
 		'link' => 'no'
 	),
 	array(
 		'slug' => 'client',
 		'name' => 'Client',
-		'term_class' => 'no-button',
+		'term_class' => 'single-term',
 		'label_class' => 'label-last',
 		'link' => 'no'
 	),
@@ -71,16 +71,18 @@ foreach ( $taxs as $tax ) {
 	foreach ( $terms as $term ) {
 		$term_perma = get_term_link($term);
 		if ( $tax['link'] == 'yes' ) {
-			$terms_out .= "<a class='" .$tax['term_class']. "' href='" .$term_perma. "'>" .$term->name. "</a>";
+			$terms_out .= "<a class='" .$tax['term_class']. "' href='" .$term_perma. "'>" .$term->name. "</a>, ";
 		} else {
-			$terms_out .= $term->name;
+			$terms_out .= $term->name. ", ";
 		}
 	}
+	$terms_out = substr($terms_out, 0, -2);
+	
 	$filters_out .= "
-		<div class='span1 filter-single'>
-			<strong class='" .$tax['label_class']. "'>" .$tax['name']. "</strong>
-			" .$terms_out. "
-		</div>
+		<dl class='span1 filter-single " .$tax['label_class']. "'>
+			<dt>" .$tax['name']. "</dt>
+			<dd>" .$terms_out. "</dd>
+		</dl>
 	";
 	}
 }

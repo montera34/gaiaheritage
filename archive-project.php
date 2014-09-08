@@ -1,29 +1,25 @@
 <?php
 get_header();
-?>
-<?php
+
 // project post type archive
 
-//	$args = array(
-//		'post_type' => 'project',
-//		'posts_per_page' => '-1',
-//	);
 	$page_tit = "Projects";
-	$page_perma = $genvars['blogurl'];
-	//$page_perma = $genvars['blogurl']. "/project";
+	//$page_perma = $genvars['blogurl'];
+	$page_perma = $genvars['blogurl']. "/project";
 	//$page_perma = $genvars['blogurl']. "?post_type=project"; // this way does not work
 	$loop = "mosac.img";
 	// filters
-	//$years = get_terms( "year", $args );
-	$years = get_terms( "yearr", $args );
-	$countries = get_terms( "country", $args );
-	$current_yearr = wp_strip_all_tags($_GET['yearr']);
-	$current_country = wp_strip_all_tags($_GET['country']);
+	$years = get_terms( "yearr" );
+	$countries = get_terms( "country" );
+	if ( array_key_exists('yearr', $_GET) ) { $current_yearr = sanitize_text_field($_GET['yearr']); }
+	else { $current_yearr = ""; }
+	if ( array_key_exists('country', $_GET) ) { $current_country = sanitize_text_field($_GET['country']); }
+	else { $current_country = ""; }
 
 	$options_out = "";
 	foreach ( $years as $term ) {
 		if ( $term->slug == $current_yearr ) { $options_out .= "<option value='" .$term->slug. "' selected>" .$term->name. "</option>"; $selected = true; }
-		else { $options_out .= "<option value='" .$term->slug. "'>" .$term->name. "</option>"; }
+		else { $options_out .= "<option value='" .$term->slug. "'>" .$term->name. "</option>"; $selected = false; }
 	}
 	if ( $selected == true ) { $selected_out = ""; } else { $selected_out = " selected"; }
 	$filters_out = "
@@ -33,7 +29,7 @@ get_header();
 			<fieldset class='span1'>
 			<label class='label-first' for='yearr'>Year</label>
 			<select name='yearr'>
-				<option value=''" .$selected_out. ">All</option>
+				<option value=''>All</option>
 				" .$options_out. "
 			</select>
 			</fieldset>
@@ -42,20 +38,20 @@ get_header();
 	unset($selected); unset($selected_out); $options_out = "";
 	foreach ( $countries as $term ) {
 		if ( $term->slug == $current_country ) { $options_out .= "<option value='" .$term->slug. "' selected>" .$term->name. "</option>"; $selected = true; }
-		else { $options_out .= "<option value='" .$term->slug. "'>" .$term->name. "</option>"; }
+		else { $options_out .= "<option value='" .$term->slug. "'>" .$term->name. "</option>"; $selected = false; }
 	}
 	if ( $selected == true ) { $selected_out = ""; } else { $selected_out = " selected"; }
 	$filters_out .= "
 			<fieldset class='span1'>
 			<label for='country'>Country</label>
 			<select name='country'>
-				<option value=''" .$selected_out. ">All</option>
+				<option value=''>All</option>
 				" .$options_out. "
 			</select>
 			</fieldset>
 			<fieldset class='span1'>
 			<input class='form-button' type='submit' value='Filter' />
-			<input id='post_type' name='post_type' type='hidden' value='project' />
+			<a href='" .$page_perma. "'>Reset filters</a>
 			</fieldset>
 			</form>
 		</div>
