@@ -168,24 +168,28 @@ register_taxonomy( 'yearr', 'project', array( // year taxonomy
 	'label' => 'Year',
 	'name' => 'Years',
 	'query_var' => 'yearr',
+		'show_admin_column' => true,
 	'rewrite' => array( 'slug' => 'yearr', 'with_front' => false ),) );
 register_taxonomy( 'country', 'project', array( // Country taxonomy
 	'hierarchical' => true,
 	'label' => 'Countries',
 	'name' => 'Country',
 	'query_var' => true,
+		'show_admin_column' => true,
 	'rewrite' => array( 'slug' => 'country', 'with_front' => false ),) );
 register_taxonomy( 'city', 'project', array( // City taxonomy
 	'hierarchical' => false,
 	'label' => 'Cities',
 	'name' => 'City',
 	'query_var' => true,
+		'show_admin_column' => true,
 	'rewrite' => array( 'slug' => 'city', 'with_front' => false ),) );
 register_taxonomy( 'client', 'project', array( // Client taxonomy
 	'hierarchical' => false,
 	'label' => 'Clients',
 	'name' => 'Client',
 	'query_var' => true,
+		'show_admin_column' => true,
 	'rewrite' => array( 'slug' => 'client', 'with_front' => false ),) );
 }
 
