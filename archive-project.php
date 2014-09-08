@@ -80,11 +80,6 @@ get_header();
 			include "loop.".$loop.".php";
 			if ( $count == 4 ) { $count = 0; }
 		endwhile;
-		/* Restore original Post Data 
-		 * NB: Because we are using new WP_Query we aren't stomping on the 
-		 * original $wp_query and it does not need to be reset.
-		*/
-		wp_reset_postdata();
 	} else {
 		// if no posts in this loop
 		echo "<div class='span4 boxitem-space'><strong>We have found no projects with these criteria. Try again!</strong></div>";
@@ -92,6 +87,7 @@ get_header();
 				</div><!-- .row -->
 			</div><!-- .box -->
 		</div><!-- row-->
+		<?php include "pagination.php"; ?>
 	</section>
 
 

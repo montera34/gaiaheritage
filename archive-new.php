@@ -1,19 +1,12 @@
 <?php
 get_header();
-?>
 
-<?php
 // news post type archive
-	$args = array(
-		'post_type' => 'new',
-		'posts_per_page' => '-1',
-	);
 	$page_tit = "News";
 	$page_perma = get_permalink();
 	$loop = "mosac.text";
 
-$the_query = new WP_Query( $args );
-if ( $the_query->have_posts() ) { ?>
+if ( have_posts() ) { ?>
 	<section>
 		<header>
 			<div class="row sec-space-separated">
@@ -28,19 +21,15 @@ if ( $the_query->have_posts() ) { ?>
 					<div id="mosactext">
 	<?php // The Loop
 	$count = 0;
-	while ( $the_query->have_posts() ) : $the_query->the_post();
+	while ( have_posts() ) : the_post();
 		$count++;
 		include "loop.".$loop.".php";
 		if ( $count == 4 ) { $count = 0; }
-	endwhile;
-	/* Restore original Post Data 
-	 * NB: Because we are using new WP_Query we aren't stomping on the 
-	 * original $wp_query and it does not need to be reset.
-	*/
-	wp_reset_postdata(); ?>
+	endwhile; ?>
 				</div><!-- #mosactext -->
 				</div><!-- row-->
 			</div><!-- .span4 -->
+			<?php include "pagination.php"; ?>
 		</div><!-- row-->
 	</section>
 
