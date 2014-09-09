@@ -60,7 +60,7 @@ get_header();
 		<header>
 			<div class="row sec-space">
 				<div class="span4">
-					<h2 class="sec-tit catcheye"><?php echo $page_tit ?></h2>
+					<h1 class="sec-tit catcheye"><?php echo $page_tit ?></h1>
 				</div>
 			</div>
 		</header>

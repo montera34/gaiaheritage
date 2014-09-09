@@ -5,7 +5,7 @@ get_header();
 		<header>
 			<div class="row sec-space">
 				<div class="span4">
-					<h2 class="sec-tit">Error 404: Content not found</h2>
+					<h1 class="sec-tit">Error 404: Content not found</h1>
 				</div>
 			</div>
 		</header>

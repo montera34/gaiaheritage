@@ -124,6 +124,8 @@ h6 {
 .current-menu-item a,
 .current-page-ancestor a,
 .single-project .post-type-project a,
+.post-type-archive-new .post-type-new a,
+.post-type-archive-document .post-type-document a,
 .post-type-archive-project .post-type-project a,
 .single-new .post-type-new a {
 	background-color: #00aad4 !important;
@@ -132,23 +134,32 @@ h6 {
 
 
 /* header */
-#gaia h1 {
-	text-indent: -9999px;
+#logo {
 	background-image: url('img/gaia.gif');
 	background-repeat: no-repeat;
 	background-position: top left;
 	height: 86px;
+	margin-top: 0;
 }
-#gaia h2 {
+#logo a {
+	text-indent: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+	display: block;
+	height: 100%;
+}
+#tagline {
 	color: #808080;
+	font-weight: bold;
+	
 }
 @media (min-width: 1200px) {
-	#gaia h2 {
+	#tagline {
 		padding-left: 50%;
 	}
 }
 @media (min-width: 980px) and (max-width: 1199px) {
-	#gaia h2 {
+	#tagline {
 		padding-left: 30%;
 	}
 }
@@ -156,7 +167,7 @@ h6 {
 
 }
 @media (min-width: 768px) {
-	#gaia h2 {
+	#tagline {
 		text-align: right;
 	}
 }
@@ -164,7 +175,6 @@ h6 {
 /* imgs mosac */
 .home .mosacimg-item,
 .archive .mosacimg-item {
-	/*text-indent: -9999px;*/
 	margin: 6px 0 13px;
 }
 .mosacimg-item a {

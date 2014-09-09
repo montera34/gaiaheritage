@@ -49,8 +49,13 @@
 		<div class="row">
 			<div id="gaia" class="span4">
 				<div class="row">
-					<h1 class="span1"><?php echo "<a href='" .GAIA_BLOGURL. "' title='Ir al inicio'>" .GAIA_BLOGNAME. "</a>"; ?></h1>
-					<div class="span1 offset2"><h2><?php echo GAIA_BLOGDESC; ?></h2></div>
+					<?php if ( is_home() || is_front_page() ) {
+						echo "<h1 id = 'logo' class='span1'><a href='" .GAIA_BLOGURL. "' title='Go to Home page'>" .GAIA_BLOGNAME. "</a></h1>";
+					} else {
+						echo "<div id = 'logo' class='span1'><a href='" .GAIA_BLOGURL. "' title='Go to Home page'>" .GAIA_BLOGNAME. "</a></div>";
+
+					} ?>
+					<div class="span1 offset2"><div id="tagline"><?php echo GAIA_BLOGDESC; ?></div></div>
 				</div>
 			</div><!-- #gaia -->
 		</div>
