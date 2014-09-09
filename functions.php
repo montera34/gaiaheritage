@@ -1,14 +1,56 @@
 <?php
-// excerpt lengh
+// theme setup main function
+add_action( 'after_setup_theme', 'gaia_theme_setup' );
+function gaia_theme_setup() {
+
+	// theme global vars
+	if (!defined('GAIA_BLOGNAME'))
+	    define('GAIA_BLOGNAME', get_bloginfo('name'));
+
+	if (!defined('GAIA_BLOGDESC'))
+	    define('GAIA_BLOGDESC', get_bloginfo('description','display'));
+
+	if (!defined('GAIA_BLOGURL'))
+	    define('GAIA_BLOGURL', get_bloginfo('url'));
+
+	if (!defined('GAIA_BLOGTHEME'))
+	    define('GAIA_BLOGTHEME', get_bloginfo('template_directory'));
+
+	// change default excerpt lengh and more label
+	add_filter( 'excerpt_length', 'gaia_excerpt_length', 999 );
+	add_filter('excerpt_more', 'gaia_excerpt_more');
+	// excerpt support in pages
+	add_post_type_support( 'page', 'excerpt' );
+
+	// register js scripts to avoid conflicts
+	add_action( 'wp_print_scripts', 'gaia_scripts_method' );
+
+	// custom menus
+	add_action( 'init', 'gaia_nav_menus' );
+
+	// custom post types and taxonomies
+	add_action( 'init', 'gaia_post_types', 0 );
+	add_action( 'init', 'gaia_taxonomies', 0 );
+
+	// custom field boxes
+	add_filter( 'cmb_meta_boxes', 'gaia_metaboxes' );
+	add_action( 'init', 'gaia_initialize_cmb_meta_boxes', 9999 );
+
+	// Adding featured image to the custom post types
+	add_theme_support( 'post-thumbnails', array( 'project') );
+
+	// remove item from wordpress dashboard
+	add_action('admin_menu', 'gaia_remove_dashboard_item');
+
+} // END theme setup main function
+
+// change default excerpt lengh and more label
 function gaia_excerpt_length( $length ) {
 	return 20;
 }
-add_filter( 'excerpt_length', 'gaia_excerpt_length', 999 );
-
 function gaia_excerpt_more( $more ) {
 	return '';
 }
-add_filter('excerpt_more', 'gaia_excerpt_more');
 
 // register js scripts to avoid conflicts
 function gaia_scripts_method() {
@@ -40,14 +82,11 @@ function gaia_scripts_method() {
 		'2.1.2',
 		TRUE
 	);
-
 }
 
-add_action( 'wp_print_scripts', 'gaia_scripts_method' );
-
 // custom menus
-add_action( 'init', 'register_my_menu' );
-function register_my_menu() {
+add_action( 'init', 'gaia_nav_menus' );
+function gaia_nav_menus() {
         if ( function_exists( 'register_nav_menus' ) ) {
                 register_nav_menus(
                 array(
@@ -58,9 +97,7 @@ function register_my_menu() {
 }
 
 // Custom post types
-add_action( 'init', 'create_post_type', 0 );
-
-function create_post_type() {
+function gaia_post_types() {
 	// Projects custom post type
 	register_post_type( 'project', array(
 		'labels' => array(
@@ -154,47 +191,39 @@ function create_post_type() {
 }
 
 // Custom Taxonomies
-add_action( 'init', 'build_taxonomies', 0 );
+function gaia_taxonomies() {
+	register_taxonomy( 'yearr', 'project', array( // year taxonomy
+		'hierarchical' => true,
+		'label' => 'Year',
+		'name' => 'Years',
+		'query_var' => 'yearr',
+		'show_admin_column' => true,
+		'rewrite' => array( 'slug' => 'yearr', 'with_front' => false ),) );
+	register_taxonomy( 'country', 'project', array( // Country taxonomy
+		'hierarchical' => true,
+		'label' => 'Countries',
+		'name' => 'Country',
+		'query_var' => true,
+		'show_admin_column' => true,
+		'rewrite' => array( 'slug' => 'country', 'with_front' => false ),) );
+	register_taxonomy( 'city', 'project', array( // City taxonomy
+		'hierarchical' => false,
+		'label' => 'Cities',
+		'name' => 'City',
+		'query_var' => true,
+		'show_admin_column' => true,
+		'rewrite' => array( 'slug' => 'city', 'with_front' => false ),) );
+	register_taxonomy( 'client', 'project', array( // Client taxonomy
+		'hierarchical' => false,
+		'label' => 'Clients',
+		'name' => 'Client',
+		'query_var' => true,
+		'show_admin_column' => true,
+		'rewrite' => array( 'slug' => 'client', 'with_front' => false ),) );
+} // END taxonomies
 
-function build_taxonomies() {
-//register_taxonomy( 'year', 'project', array( // year taxonomy
-//	'hierarchical' => true,
-//	'label' => 'Year',
-//	'name' => 'Years',
-//	'query_var' => 'year',
-//	'rewrite' => array( 'slug' => 'year', 'with_front' => false ),) );
-register_taxonomy( 'yearr', 'project', array( // year taxonomy
-	'hierarchical' => true,
-	'label' => 'Year',
-	'name' => 'Years',
-	'query_var' => 'yearr',
-		'show_admin_column' => true,
-	'rewrite' => array( 'slug' => 'yearr', 'with_front' => false ),) );
-register_taxonomy( 'country', 'project', array( // Country taxonomy
-	'hierarchical' => true,
-	'label' => 'Countries',
-	'name' => 'Country',
-	'query_var' => true,
-		'show_admin_column' => true,
-	'rewrite' => array( 'slug' => 'country', 'with_front' => false ),) );
-register_taxonomy( 'city', 'project', array( // City taxonomy
-	'hierarchical' => false,
-	'label' => 'Cities',
-	'name' => 'City',
-	'query_var' => true,
-		'show_admin_column' => true,
-	'rewrite' => array( 'slug' => 'city', 'with_front' => false ),) );
-register_taxonomy( 'client', 'project', array( // Client taxonomy
-	'hierarchical' => false,
-	'label' => 'Clients',
-	'name' => 'Client',
-	'query_var' => true,
-		'show_admin_column' => true,
-	'rewrite' => array( 'slug' => 'client', 'with_front' => false ),) );
-}
-
-//Add metaboxes to Case Study Custom post type
-function be_sample_metaboxes( $meta_boxes ) {//metaboxes common variables to all scales
+// Custom field boxes
+function gaia_metaboxes( $meta_boxes ) {
 	$prefix = '_gaia_'; // Prefix for all fields
 	// number of cols
 	$meta_boxes[] = array(
@@ -363,30 +392,15 @@ function be_sample_metaboxes( $meta_boxes ) {//metaboxes common variables to all
 	}
 	return $meta_boxes;
 }
-add_filter( 'cmb_meta_boxes', 'be_sample_metaboxes' );
 // Initialize the metabox class
-add_action( 'init', 'be_initialize_cmb_meta_boxes', 9999 );
-function be_initialize_cmb_meta_boxes() {
+function gaia_initialize_cmb_meta_boxes() {
 	if ( !class_exists( 'cmb_Meta_Box' ) ) {
 		require_once( 'lib/metabox/init.php' );
 	}
 }
 
-// Adding featured image to the custom post types
-add_theme_support( 'post-thumbnails', array( 'project') );
-
-// excerpt support in pages
-add_post_type_support( 'page', 'excerpt' );
-
 // removing menu items from the admin panel
-function remove_menus () {
-	global $menu;
-	$restricted = array( __('Posts'));
-	end ($menu);
-	while (prev($menu)){
-		$value = explode(' ',$menu[key($menu)][0]);
-		if(in_array($value[0] != NULL?$value[0]:"" , $restricted)){unset($menu[key($menu)]);}
-	}
+function gaia_remove_dashboard_item() {
+	remove_menu_page('edit.php');	
 }
-add_action('admin_menu', 'remove_menus');
 ?>
