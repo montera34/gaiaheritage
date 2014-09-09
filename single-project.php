@@ -74,9 +74,8 @@ foreach ( $taxs as $tax ) {
 	if ( $terms != '' ) {
 	$terms_out = "";
 	foreach ( $terms as $term ) {
-		$term_perma = get_term_link($term);
-		//$term_perma = ;
 		if ( $tax['link'] == 'yes' ) {
+			$term_perma = trailingslashit(GAIA_BLOGURL). "project/?" .$tax['slug']. "=" .$term->slug;
 			$terms_out .= "<a class='" .$tax['term_class']. "' href='" .$term_perma. "'>" .$term->name. "</a>, ";
 		} else {
 			$terms_out .= $term->name. ", ";
