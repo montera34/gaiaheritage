@@ -9,10 +9,15 @@ get_header();
 	// filters
 	$years = get_terms( "yearr" );
 	$countries = get_terms( "country" );
-	if ( array_key_exists('yearr', $_GET) ) { $current_yearr = sanitize_text_field($_GET['yearr']); }
-	else { $current_yearr = ""; }
-	if ( array_key_exists('country', $_GET) ) { $current_country = sanitize_text_field($_GET['country']); }
-	else { $current_country = ""; }
+	if ( array_key_exists('yearr', $_GET) ) {
+		$current_yearr = sanitize_text_field($_GET['yearr']);
+		$page_tit .= " developed during " .$current_yearr;
+	} else { $current_yearr = ""; }
+	if ( array_key_exists('country', $_GET) ) {
+		$current_country = sanitize_text_field($_GET['country']);
+		if ( $page_tit == 'Projects' ) { $page_tit .= " developed in " .$current_country; }
+		else { $page_tit .= " in " .$current_country; }
+	} else { $current_country = ""; }
 
 	$options_out = "";
 	foreach ( $years as $term ) {
