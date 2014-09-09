@@ -4,9 +4,7 @@ get_header();
 // project post type archive
 
 	$page_tit = "Projects";
-	//$page_perma = $genvars['blogurl'];
-	$page_perma = $genvars['blogurl']. "/project";
-	//$page_perma = $genvars['blogurl']. "?post_type=project"; // this way does not work
+	$page_perma = GAIA_BLOGURL. "/project";
 	$loop = "mosac.img";
 	// filters
 	$years = get_terms( "yearr" );

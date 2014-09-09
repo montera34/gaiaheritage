@@ -10,12 +10,12 @@ if ( is_home() ) {
 	$date_human = get_the_time('F d, Y');
 	$date = get_the_time('Y-m-d');
 	$tit = "<time datetime='" .$date. "'>" .$date_human. "</time>";	
-		$header = "<h2 class='sec-tit catcheye'>" .$tit. "</h2><div class='box-catcheye catcheye'>" .$genvars['blogdesc']. "</div>";
+		$header = "<h2 class='sec-tit catcheye'>" .$tit. "</h2><div class='box-catcheye catcheye'>" .GAIA_BLOGDESC. "</div>";
 	$excerpt = "<h3 class='mosactext-item-tit'><a href='" .$perma. "'>" .get_the_title(). "</a></h3>" .get_the_excerpt();
 }
 
 if ( $count == 1 && is_home() ) { 
-	$tit_out = "<h2 class='sec-tit catcheye'>" .$tit. "</h2><div class='box-catcheye catcheye'>" .$genvars['blogdesc']. "</div>";
+	$tit_out = "<h2 class='sec-tit catcheye'>" .$tit. "</h2><div class='box-catcheye catcheye'>" .GAIA_BLOGDESC. "</div>";
 } else {
 	$tit_out = "<h2 class='sec-tit'>" .$tit. "</h2>";
 }

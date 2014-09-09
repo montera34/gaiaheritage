@@ -11,7 +11,7 @@ echo "general archive";
 //		'posts_per_page' => '-1',
 //	);
 	$page_tit = "Projects";
-	$page_perma = $genvars['blogurl']. "/project";
+	$page_perma = GAIA_BLOGURL. "/project";
 	$loop = "mosac.img";
 	// filters
 	$years = get_terms( "year", $args );

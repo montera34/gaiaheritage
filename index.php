@@ -133,7 +133,7 @@ if ( $the_query->have_posts() ) { ?>
 } // end if have post ?>
 
 					</div>
-					<div class="mosactext-more"><a href="<?php echo $genvars['blogurl']; ?>/news" title="News archive">+ news</a></div>
+					<div class="mosactext-more"><a href="<?php echo GAIA_BLOGURL; ?>/news" title="News archive">+ news</a></div>
 				</div>
 			</div>
 		</div>

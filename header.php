@@ -1,17 +1,5 @@
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
-
-<?php
-// main page vars
-global $genvars;
-$genvars = array(
-	'blogname' => get_bloginfo('name'), // title
-	'blogdesc' => get_bloginfo( 'description', 'display' ), // description
-	'blogurl' => get_bloginfo('url'), // home url
-	'blogtheme' => get_bloginfo('template_directory'), // theme url
-);
-?>
-
 <head>
 <meta charset="<?php bloginfo( 'charset' ); ?>" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -25,36 +13,33 @@ $genvars = array(
 	wp_title( '|', true, 'right' );
 
 	// Add the blog name.
-	//bloginfo( 'name' );
-		echo $genvars['blogname'];
+	echo GAIA_BLOGNAME;
 
-		// Add the blog description for the home/front page.
-		$site_description = $genvars['blogdesc'];
-		if ( $site_description != '' && ( is_home() || is_front_page() ) )
-			echo " | $site_description";
+	// Add the blog description for the home/front page.
+	$site_description = GAIA_BLOGDESC;
+	if ( $site_description != '' && ( is_home() || is_front_page() ) )
+		echo " | $site_description";
 
-		// Add a page number if necessary:
-		if ( $paged >= 2 || $page >= 2 )
-			echo ' | ' . sprintf( __( 'Page %s', 'gaiaheritage' ), max( $paged, $page ) );
-		?>
+	// Add a page number if necessary:
+	if ( $paged >= 2 || $page >= 2 )
+		echo ' | ' . sprintf( __( 'Page %s', 'gaiaheritage' ), max( $paged, $page ) );
+?>
 </title>
 
 <meta content="Gaia Heritage" name="author" />
-<meta content="<?php echo $genvars['blogdesc']; ?>" name="description" />
+<meta content="<?php echo GAIA_BLOGDESC; ?>" name="description" />
 <meta content="heritage" name="keywords" />
 <link rel="profile" href="http://gmpg.org/xfn/11" />
 
 <!-- Bootstrap -->
-<link href="<?php echo $genvars['blogtheme']; ?>/css/bootstrap.min.css" rel="stylesheet" />
+<link href="<?php echo GAIA_BLOGTHEME; ?>/css/bootstrap.min.css" rel="stylesheet" />
 <link href="<?php bloginfo('stylesheet_url'); ?>" rel="stylesheet" />
 
-<link rel="alternate" type="application/rss+xml" title="<?php echo $genvars['blogname']; ?> RSS Feed suscription" href="<?php bloginfo('rss2_url'); ?>" />
-<link rel="alternate" type="application/atom+xml" title="<?php echo $genvars['blogname']; ?> Atom Feed suscription" href="<?php bloginfo('atom_url'); ?>" /> 
+<link rel="alternate" type="application/rss+xml" title="<?php echo GAIA_BLOGNAME; ?> RSS Feed suscription" href="<?php bloginfo('rss2_url'); ?>" />
+<link rel="alternate" type="application/atom+xml" title="<?php echo GAIA_BLOGNAME; ?> Atom Feed suscription" href="<?php bloginfo('atom_url'); ?>" /> 
 <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
 
-<?php
-// if ( is_singular() ) wp_enqueue_script( 'comment-reply' );
-wp_head(); ?>
+<?php wp_head(); ?>
 </head>
 
 <body <?php body_class(); ?>>
@@ -64,8 +49,8 @@ wp_head(); ?>
 		<div class="row">
 			<div id="gaia" class="span4">
 				<div class="row">
-					<h1 class="span1"><?php echo "<a href='" .$genvars['blogurl']. "' title='Ir al inicio'>" .$genvars['blogname']. "</a>"; ?></h1>
-					<div class="span1 offset2"><h2><?php echo $genvars['blogdesc']; ?></h2></div>
+					<h1 class="span1"><?php echo "<a href='" .GAIA_BLOGURL. "' title='Ir al inicio'>" .GAIA_BLOGNAME. "</a>"; ?></h1>
+					<div class="span1 offset2"><h2><?php echo GAIA_BLOGDESC; ?></h2></div>
 				</div>
 			</div><!-- #gaia -->
 		</div>
