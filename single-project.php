@@ -18,14 +18,14 @@ $args = array(
 $reldocs = get_posts($args);
 
 if ( count($reldocs) >= 1 ) {
-	$reldocs_out = "<section><div id='reldocs' class='span1'><h3 class='reldocs-tit'>Documents</h3>";
+	$reldocs_out = "<section id='reldocs'><header><h3 class='reldocs-tit'>Documents</h3></header>";
 	foreach ( $reldocs as $reldoc ) {
 		setup_postdata($reldoc);
 		$reldoc_tit = get_the_title();
 		$reldoc_perma = get_post_meta( $reldoc->ID, '_gaia_doc', true );
-		$reldocs_out .= "<div class='list-item'><strong><a href='" .$reldoc_perma. "' title='" .$reldoc_tit. "'>" .$reldoc_tit. "</strong></div>";
+		$reldocs_out .= "<div class='list-item'><strong><a href='" .$reldoc_perma. "' title='" .$reldoc_tit. "'>" .$reldoc_tit. "</a></strong></div>";
 	}
-	$reldocs_out .= "</div></section>";
+	$reldocs_out .= "</section>";
 
 } else { $reldocs_out = ""; } // end if have post 
 // end related docs loop
@@ -62,7 +62,7 @@ $taxs = array(
 		'link' => 'no'
 	),
 );
-$filters_out = "<div class='row mosac-row'>";
+$filters_out = "<dl class='filter-single'>";
 foreach ( $taxs as $tax ) {
 	$terms = get_the_terms($post->ID,$tax['slug']);
 	if ( $terms != '' ) {
@@ -78,16 +78,15 @@ foreach ( $taxs as $tax ) {
 	$terms_out = substr($terms_out, 0, -2);
 	
 	$filters_out .= "
-		<dl class='span1 filter-single " .$tax['label_class']. "'>
 			<dt>" .$tax['name']. "</dt>
 			<dd>" .$terms_out. "</dd>
-		</dl>
 	";
 	}
 }
-$filters_out .= "</div><!-- .mosac-row -->";
+$filters_out .= "</dl><!-- .filter-single -->";
+
 if ( have_posts() ) { ?>
-	<section>
+	<article>
 		<header>
 			<div class="row sec-space">
 				<div class="span4">
@@ -98,27 +97,19 @@ if ( have_posts() ) { ?>
 		<div class="row">
 			<div class="span4 box">
 
-				<?php echo $filters_out ?>
 				<div class="row mosac-row">
-	<?php // The Loop
-	$count = 0;
-	//while ( $the_query->have_posts() ) : $the_query->the_post();
-	while ( have_posts() ) : the_post();
-		$count++;
-		include "loop.".$loop.".php";
-		if ( $count == 4 ) { $count = 0; }
-	endwhile;
-	/* Restore original Post Data 
-	 * NB: Because we are using new WP_Query we aren't stomping on the 
-	 * original $wp_query and it does not need to be reset.
-	*/
-	wp_reset_postdata();
-
-				echo $reldocs_out ?>
+				<?php // The Loop
+				$count = 0;
+				while ( have_posts() ) : the_post();
+					$count++;
+					include "loop.".$loop.".php";
+					if ( $count == 4 ) { $count = 0; }
+				endwhile;
+				echo "<div class='span1'>" .$filters_out . $reldocs_out. "</div>"; ?>
 				</div><!-- .row -->
 			</div><!-- .box -->
 		</div><!-- row-->
-	</section>
+	</article>
 
 <?php } else {
 // if no posts in this loop

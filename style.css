@@ -464,22 +464,8 @@ input[type="hidden"] { height: 0; width: 0;}
 }
 
 /* single */
-.filter-single {
-	margin-bottom: 14px;
-}
-.label-first dt,
-.label-first dd {
-	padding-left: 10px;
-}
 .filter-single dd {
-	margin-left: 0;
-}
-
-@media (max-width: 768px) {
-	.filter-single .label-middle,
-	.filter-single .label-last {
-		padding-left: 10px;
-	}
+	margin: 0 0 14px 0;
 }
 
 .gallery .row {
