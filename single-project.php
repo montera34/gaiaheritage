@@ -16,22 +16,16 @@ $args = array(
 	),
 );
 $reldocs = get_posts($args);
-//$the_query = new WP_Query( $args );
 
-//if ( $the_query->have_posts() ) {
 if ( count($reldocs) >= 1 ) {
 	$reldocs_out = "<section><div id='reldocs' class='span1'><h3 class='reldocs-tit'>Documents</h3>";
-	// The Loop
 	foreach ( $reldocs as $reldoc ) {
 		setup_postdata($reldoc);
-	//while ( $the_query->have_posts() ) : $the_query->the_post();
 		$reldoc_tit = get_the_title();
 		$reldoc_perma = get_post_meta( $reldoc->ID, '_gaia_doc', true );
 		$reldocs_out .= "<div class='list-item'><strong><a href='" .$reldoc_perma. "' title='" .$reldoc_tit. "'>" .$reldoc_tit. "</strong></div>";
 	}
-	//endwhile;
 	$reldocs_out .= "</div></section>";
-	//wp_reset_postdata();
 
 } else { $reldocs_out = ""; } // end if have post 
 // end related docs loop
