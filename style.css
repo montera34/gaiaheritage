@@ -128,8 +128,9 @@ h6 {
 .post-type-archive-document .post-type-document a,
 .post-type-archive-project .post-type-project a,
 .single-new .post-type-new a {
-	background-color: #00aad4 !important;
-	color: #fff !important;
+/*	background-color: #00aad4 !important;
+	color: #fff !important;*/
+	font-weight: bold;
 }
 
 
@@ -138,6 +139,7 @@ h6 {
 	background-image: url('img/gaia.gif');
 	background-repeat: no-repeat;
 	background-position: top left;
+	background-size: contain;
 	height: 86px;
 	margin-top: 0;
 }
@@ -151,7 +153,7 @@ h6 {
 #tagline {
 	color: #808080;
 	font-weight: bold;
-	
+	line-height: 1.2em;
 }
 @media (min-width: 1200px) {
 	#tagline {
