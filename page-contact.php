@@ -29,10 +29,6 @@ if ( have_posts() ) { ?>
 						<?php the_content(); ?>
 					</div><!-- .mosactext-item-first -->
 					</div><!-- .span1 -->
-					<div class="span1"><div class="boxitem-space">
-						<?php echo do_shortcode( '[contact-form-7 id="55" title="Contact form 1"]' ); ?>
-					</div><!-- .boxitem-space -->
-					</div><!-- .span1 -->
 					<?php // postal and email addresses
 					$postal_out = "";
 					$email_out = "";
@@ -52,7 +48,7 @@ if ( have_posts() ) { ?>
 						<?php echo $postal_out ?>
 					</div><!-- .boxitem-space -->
 					</div><!-- .span1 -->
-					<div class="span1"><div class="boxitem-space">
+					<div class="span2"><div class="boxitem-space">
 						<?php echo $email_out ?>
 					</div><!-- .boxitem-space -->
 					</div><!-- .span1 -->
