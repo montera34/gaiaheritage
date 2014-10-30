@@ -54,6 +54,9 @@ if ( $post->post_parent == '0' && count($children) >> 0 ) {
 		}
 	}
 
+} else {
+	$page_menu_out = "<header class='page-menu-item'><h1>" .$page_tit. "</h1></header>";
+
 } // end if this page has children
 ?>
 
