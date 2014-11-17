@@ -40,10 +40,32 @@
 <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
 
 <?php wp_head(); ?>
+
+<?php if ( is_front_page() ) { ?>
+<style>
+.box {
+	padding: 0;
+	background-color: transparent;
+}
+.mosac-blue {
+	background-color: rgba(0, 170, 212, 0.65);
+	color: #eee;
+	font-weight: bold;
+	font-size: 2.5em;
+	line-height: 1.1em;
+	height: 200px;
+}
+.mosac-white {
+	background-color: #fff;
+	height: 200px;
+}
+</style>
+<?php } else {} ?>
 </head>
 
 <body <?php body_class(); ?>>
 
+<?php if ( is_front_page() ) {} else { ?>
 <header>
 	<div id="pre" class="box-space container">
 		<div class="row">
@@ -95,5 +117,6 @@
 	</div><!-- #premenu -->
 	</nav>
 </header>
+<?php } ?>
 
 <div class="container">

@@ -1,5 +1,6 @@
 </div><!-- .container -->
 
+<?php if ( is_front_page() ) {} else { ?>
 <footer>
 	<div id="epi" class="container">
 		<div class="row">
@@ -8,12 +9,14 @@
 				<?php echo GAIA_BLOGDESC; ?></p>
 				<ul class="unstyled">
 					<li><a href="">Disclaimer</a></li>
-					<li>Developed by <a href="http://montera.com">m34</a> using <a href="http://wordpress.org">WordPress</a>.</li>
+					<li>Developed by <a href="http://montera34.com">m34</a> using <a href="http://wordpress.org">WordPress</a>.</li>
 				</ul>
 			</div><!-- .box/bordertop -->
 		</div>
 	</div><!-- #pre -->
 </footer>
+<?php } ?>
+
 <?php wp_footer(); ?>
 
 </body><!-- end body as main container -->
