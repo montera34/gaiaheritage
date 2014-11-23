@@ -242,48 +242,7 @@ function gaia_metaboxes( $meta_boxes ) {
 			),
 		),
 	);
-	// imgs mosac in single project
-	$rows = 5; // maximun number of rows
-	$count_rows = 0;
-	while ( $rows > $count_rows ) {
-		$count_rows++;
-		$meta_boxes[] = array(
-			'id' => 'row_'.$count_rows,
-			'title' => 'Images mosaic: row '.$count_rows,
-			'pages' => array('project'), // post type
-			'context' => 'normal',
-			'priority' => 'high',
-			'show_names' => true, // Show field names on the left
-			'fields' => array(
-				array(
-					'name' => 'Number of images in this row.',
-					'desc' => '',
-					'id' => $prefix . 'pr_row'.$count_rows.'_cols',
-					'type' => 'radio_inline',
-					'options' => array(
-						array('name' => '1', 'value' => '1'),
-						array('name' => '2', 'value' => '2'),
-					)
-				),
-				array(
-					'name' => 'Image 1',
-					'desc' => '',
-					'id' => $prefix . 'pr_row'.$count_rows.'_img1',
-					'type' => 'file',
-					'save_id' => true, // save ID using true
-					'allow' => array( 'url', 'attachment' ) // limit to just attachments with array( 'attachment' )
-				),
-				array(
-					'name' => 'Image 2',
-					'desc' => '',
-					'id' => $prefix . 'pr_row'.$count_rows.'_img2',
-					'type' => 'file',
-					'save_id' => true, // save ID using true
-					'allow' => array( 'url', 'attachment' ) // limit to just attachments with array( 'attachment' )
-				),
-			),
-		);	
-	} // end while rows
+
 	$meta_boxes[] = array(
 		'id' => 'doc',
 		'title' => 'Document',

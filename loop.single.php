@@ -1,24 +1,16 @@
 <?php
-$rows = 5;
-$count_rows = 0;
-$loop_out = "";
-$img_class = "gallery-item";
-$img_tit = get_the_title();
-$prefix = "pr";
-include "loop.gallery.php";
-
-if ( $loop_out != '' ) { // if project has images
+if ( has_post_thumbnail() ) { // if project has images
 ?>
-	<div class="span2 gallery">
-		<?php echo $loop_out; ?>
-	</div>
 	<div class="span1">
+		<figure><?php echo get_the_post_thumbnail($post->ID,'medium'); ?></figure>
+	</div>
+	<div class="span2 single-text">
 		<?php the_content(); ?>
 	</div>
 
 <?php } else { ?>
 	<div class="span3">
-	<div class="boxitem-space three_columns">
+	<div class="boxitem-bigspace">
 		<?php the_content(); ?>
 	</div>
 	</div>

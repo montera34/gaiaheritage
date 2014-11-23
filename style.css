@@ -73,7 +73,12 @@ h6 {
 	overflow: hidden;
 }
 .boxitem-bigspace {
-	padding: 10px 20% 0 10px;
+	padding: 0 20% 0 10px;
+}
+@media (max-width: 768px) {
+.boxitem-bigspace {
+	padding-right: 10px;
+}
 }
 
 @media (min-width: 1200px) {
@@ -477,17 +482,28 @@ input[type="hidden"] { height: 0; width: 0;}
 }
 
 /* single */
+.filter-single {
+        margin-top: 0;
+}
 .filter-single dd {
 	margin: 0 0 14px 0;
 }
-
-.gallery .row {
-	padding-bottom: 25px;
+.single-project .project figure {
+        margin: 0 0 7px 14px;
 }
+/*.gallery .row {
+	padding-bottom: 25px;
+}*/
 .reldocs-tit {
 	margin-top: 0;
 }
-
+@media (max-width: 767px) {
+        .single-text,
+        .filter-single,
+        #reldocs {
+                padding: 0 14px;
+        }
+}
 
 /* footer */
 #epi {
