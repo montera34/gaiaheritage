@@ -45,8 +45,8 @@ if ( have_posts() ) { ?>
 					</div><!-- .span4 -->
 				</div><!-- .row -->
 			</div><!-- .box -->
-			<?php include "pagination.php"; ?>
 		</div><!-- row-->
+		<?php include "pagination.php"; ?>
 	</section>
 
 <?php } else {
