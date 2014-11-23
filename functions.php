@@ -119,7 +119,7 @@ function gaia_post_types() {
 		'publicly_queryable' => true,
 		'exclude_from_search' => false,
 		'menu_position' => 5,
-		//'menu_icon' => get_template_directory_uri() . '/images/icon-post.type-integrantes.png',
+		'menu_icon' => get_template_directory_uri() . '/img/gaia-dashboard-pt-project.png',
 		'hierarchical' => false, // if true this post type will be as pages
 		'query_var' => true,
 		'supports' => array('title', 'editor','excerpt','author','trackbacks','thumbnail' ),
@@ -149,7 +149,7 @@ function gaia_post_types() {
 		'publicly_queryable' => true,
 		'exclude_from_search' => true,
 		'menu_position' => 5,
-		//'menu_icon' => get_template_directory_uri() . '/images/icon-post.type-integrantes.png',
+		'menu_icon' => get_template_directory_uri() . '/img/gaia-dashboard-pt-document.png',
 		'hierarchical' => false, // if true this post type will be as pages
 		'query_var' => true,
 		'supports' => array('title','author','trackbacks'),
@@ -179,7 +179,7 @@ function gaia_post_types() {
 		'publicly_queryable' => true,
 		'exclude_from_search' => true,
 		'menu_position' => 5,
-		//'menu_icon' => get_template_directory_uri() . '/images/icon-post.type-integrantes.png',
+		'menu_icon' => get_template_directory_uri() . '/img/gaia-dashboard-pt-new.png',
 		'hierarchical' => false, // if true this post type will be as pages
 		'query_var' => true,
 		'supports' => array('title', 'editor','excerpt','author','trackbacks' ),
