@@ -1,4 +1,6 @@
-<?php get_header(); ?>
+<?php
+/* Template name: Under construction */
+get_header(); ?>
 
 <section style="margin-top: 100px;">
 	<header>

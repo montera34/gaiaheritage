@@ -41,7 +41,7 @@
 
 <?php wp_head(); ?>
 
-<?php if ( is_front_page() ) { ?>
+<?php if ( is_page_template('page-building.php') ) { ?>
 <style>
 .box {
 	padding: 0;
@@ -60,12 +60,12 @@
 	height: 200px;
 }
 </style>
-<?php } else {} ?>
+<?php } ?>
 </head>
 
 <body <?php body_class(); ?>>
 
-<?php if ( is_front_page() ) {} else { ?>
+<?php if ( is_page_template('page-building.php') ) {} else { ?>
 <header>
 	<div id="pre" class="box-space container">
 		<div class="row">

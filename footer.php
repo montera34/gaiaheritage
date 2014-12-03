@@ -1,6 +1,6 @@
 </div><!-- .container -->
 
-<?php if ( is_front_page() ) {} else { ?>
+<?php if ( is_page_template('page-building.php') ) {} else { ?>
 <footer>
 	<div id="epi" class="container">
 		<div class="row">
