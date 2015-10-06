@@ -21,7 +21,7 @@ if ( count($reldocs) >= 1 ) {
 	$reldocs_out = "<section id='reldocs'><header><h3 class='reldocs-tit'>Documents</h3></header>";
 	foreach ( $reldocs as $reldoc ) {
 		setup_postdata($reldoc);
-		$reldoc_tit = get_the_title();
+		$reldoc_tit = get_the_title($reldoc->ID);
 		$reldoc_perma = get_post_meta( $reldoc->ID, '_gaia_doc', true );
 		$reldocs_out .= "<div class='list-item'><strong><a href='" .$reldoc_perma. "' title='" .$reldoc_tit. "'>" .$reldoc_tit. "</a></strong></div>";
 	}
